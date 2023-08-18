@@ -38,7 +38,7 @@
                      <children>
                         <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="383.0" text="Please select vehicle type">
                            <font>
-                              <Font name="Century Gothic Bold" size="18.0" />
+                              <Font name="Century Gothic Bold" size="21.0" />
                            </font>
                            <textFill>
                               <LinearGradient endX="1.0" endY="1.0">
@@ -57,7 +57,7 @@
                               </LinearGradient>
                            </textFill>
                         </Label>
-                        <Line endX="282.0" startX="-100.0" stroke="#e6e6e6" />
+                        <Line endX="282.0" startX="-100.0" stroke="#ededed" />
                         <VBox prefHeight="329.0" prefWidth="323.0" spacing="30.0">
                            <children>
                               <Button fx:id="vehicle_Jeep" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="323.0" style="-fx-background-color: fff; -fx-background-radius: 60;">
