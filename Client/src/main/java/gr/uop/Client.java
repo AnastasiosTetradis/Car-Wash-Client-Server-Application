@@ -1,6 +1,7 @@
 package gr.uop;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,7 +20,10 @@ public class Client extends Application {
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Client.class.getResource("RegistrationNumber.fxml"));
         // FXMLLoader fxmlLoader = new FXMLLoader(Client.class.getResource("VehicleType.fxml"));
+        // FXMLLoader fxmlLoader = new FXMLLoader(Client.class.getResource("ServiceSelection - Copy.fxml"));
         Parent mainPane = fxmlLoader.load();
+        // ServiceSelectionController serviceSelectionController = fxmlLoader.getController();
+
         scene = new Scene(mainPane, 1024, 768);
         stage.setScene(scene);
         stage.setTitle("Client - Registration Input Page");

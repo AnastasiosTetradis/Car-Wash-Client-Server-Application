@@ -709,7 +709,7 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <right>
-            <StackPane fx:id="reginfo" prefHeight="47.0" prefWidth="525.0" style="-fx-background-color: fff; -fx-background-radius: 12;" BorderPane.alignment="CENTER">
+            <StackPane fx:id="reginfo" prefHeight="47.0" prefWidth="525.0" style="-fx-background-color: fff; -fx-background-radius: 12;" stylesheets="@stylesheets/font.css" BorderPane.alignment="CENTER">
                <BorderPane.margin>
                   <Insets bottom="130.0" right="70.0" top="130.0" />
                </BorderPane.margin>
@@ -723,7 +723,7 @@
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" scaleShape="false">
                      <children>
-                        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="83.0" prefWidth="525.0" text="Enter a valid vehicle registration number" textFill="#47bb6e" wrapText="true" VBox.vgrow="ALWAYS">
+                        <Label alignment="CENTER" contentDisplay="TOP" prefHeight="83.0" prefWidth="525.0" styleClass="overheadtitle" text="Enter a valid vehicle registration number" textFill="#47bb6e" wrapText="true" VBox.vgrow="ALWAYS">
                            <font>
                               <Font name="Century Gothic Bold" size="21.0" />
                            </font>
@@ -731,7 +731,7 @@
                         <Line endX="194.84048461914062" endY="-33.0" startX="-329.1191101074219" startY="-33.0" stroke="#ededed" />
                         <HBox alignment="CENTER" prefHeight="181.0" prefWidth="525.0" VBox.vgrow="ALWAYS">
                            <children>
-                              <TextField fx:id="registration_textfield" alignment="CENTER" prefHeight="53.0" prefWidth="273.0" promptText="e.g. ABC 1234" style="-fx-border-color: linear-gradient(to right, #47BB7C80, #4ACF9F80); -fx-border-radius: 30; -fx-background-radius: 30; -fx-background-color: fff;">
+                              <TextField fx:id="registration_textfield" alignment="CENTER" prefHeight="53.0" prefWidth="273.0" promptText="e.g. ABC 1234" style="-fx-border-color: linear-gradient(to right, #47BB7C80, #4ACF9F80); -fx-border-radius: 11; -fx-background-radius: 11; -fx-background-color: fff;">
                                  <HBox.margin>
                                     <Insets bottom="35.0" left="10.0" right="10.0" top="35.0" />
                                  </HBox.margin>
@@ -759,7 +759,7 @@
                                  <graphic>
                                     <HBox prefHeight="61.0" prefWidth="137.0">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="117.0" text="Continue" textFill="WHITE">
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="117.0" styleClass="screenchange_button" text="Continue" textFill="WHITE">
                                              <font>
                                                 <Font name="Century Gothic Bold" size="15.0" />
                                              </font>
