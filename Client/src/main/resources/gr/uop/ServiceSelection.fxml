@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.ClientController">
+   <center>
+      <BorderPane maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane fx:id="reginfo" prefHeight="690.0" prefWidth="1013.0" style="-fx-background-color: fff; -fx-background-radius: 11;">
+                     <children>
+                        <VBox alignment="TOP_CENTER" fillWidth="false" layoutX="6.0" layoutY="1.0" maxWidth="1027.0" prefHeight="688.0" prefWidth="997.0" scaleShape="false" stylesheets="@stylesheets/font.css">
+                           <children>
+                              <Label fx:id="overheadtitle" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="69.0" prefWidth="964.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Please select from our available services">
+                                 <font>
+                                    <Font name="Segoe UI Semibold" size="21.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.29019609093666077" green="0.8117647171020508" blue="0.6235294342041016" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                              </Label>
+                              <Line endX="854.0648803710938" endY="-6.2278733253479" startX="-134.56134033203125" startY="-6.227869987487793" stroke="#ededed" VBox.vgrow="ALWAYS" />
+                              <ScrollPane pannable="true" prefHeight="605.0" prefWidth="995.0" vbarPolicy="NEVER">
+                                 <content>
+                                    <FlowPane alignment="CENTER" columnHalignment="CENTER" hgap="20.0" orientation="VERTICAL" prefHeight="587.0" prefWidth="991.0" prefWrapLength="300.0">
+                                       <padding>
+                                          <Insets left="2.0" />
+                                       </padding>
+                                    </FlowPane>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets top="10.0" />
+                     </HBox.margin>
+                  </Pane>
+               </children>
+            </HBox>
+         </center>
+      </BorderPane>
+   </center>
+   <bottom>
+      <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="back_button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
+               <graphic>
+                  <HBox prefHeight="61.0" prefWidth="133.0">
+                     <children>
+                        <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" style="-fx-translate-y: 0;">
+                           <image>
+                              <Image url="@media/arrow.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ImageView>
+                        <Label alignment="CENTER" prefHeight="27.0" prefWidth="79.0" styleClass="screenchange_button" stylesheets="@stylesheets/font.css" text="Back" textFill="WHITE">
+                           <font>
+                              <Font name="Century Gothic Bold" size="15.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                  </HBox>
+               </graphic>
+               <effect>
+                  <DropShadow>
+                     <color>
+                        <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.4313725531101227" opacity="0.30000001192092896" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <font>
+                  <Font name="Century Gothic Bold" size="17.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <HBox alignment="CENTER_RIGHT" prefHeight="78.0" prefWidth="349.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="281.0" stylesheets="@stylesheets/font.css">
+                     <children>
+                        <Label fx:id="totalcost" prefHeight="39.0" prefWidth="153.0" style="-fx-background-color: fff; -fx-background-radius: 30 0 0 30;" styleClass="cost" text="Total Cost: 1080 €">
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.29019609093666077" green="0.8117647171020508" blue="0.6235294342041016" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="continue_button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToScene3" prefHeight="39.0" prefWidth="148.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 30 30 0;">
+                           <graphic>
+                              <HBox prefHeight="61.0" prefWidth="133.0">
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="27.0" prefWidth="79.0" styleClass="screenchange_button" stylesheets="@stylesheets/font.css" text="Continue" textFill="WHITE">
+                                       <font>
+                                          <Font name="Century Gothic Bold" size="15.0" />
+                                       </font>
+                                    </Label>
+                                    <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-y: 0;">
+                                       <image>
+                                          <Image url="@media/arrow.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </HBox>
+                           </graphic>
+                           <effect>
+                              <DropShadow>
+                                 <color>
+                                    <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.4313725531101227" opacity="0.30000001192092896" />
+                                 </color>
+                              </DropShadow>
+                           </effect>
+                           <font>
+                              <Font name="Century Gothic Bold" size="17.0" />
+                           </font>
+                           <textFill>
+                              <LinearGradient endX="1.0" endY="1.0">
+                                 <stops>
+                                    <Stop>
+                                       <color>
+                                          <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                       </color>
+                                    </Stop>
+                                    <Stop offset="1.0">
+                                       <color>
+                                          <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                       </color>
+                                    </Stop>
+                                 </stops>
+                              </LinearGradient>
+                           </textFill>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets right="5.0" />
+               </HBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets left="5.0" />
+         </padding>
+      </HBox>
+   </bottom>
+</BorderPane>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="interior_services" prefHeight="555.0" prefWidth="227.0" spacing="15.0" style="-fx-background-color: fff; -fx-background-radius: 11;" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <FlowPane columnHalignment="CENTER" prefHeight="46.0" prefWidth="221.0">
+         <children>
+            <HBox alignment="CENTER" fillHeight="false" prefHeight="29.0" prefWidth="29.0" style="-fx-background-color: fff; -fx-background-radius: 30;">
+               <children>
+                  <ImageView fx:id="service_icon" fitHeight="25.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@media/car%20wash.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <effect>
+                  <DropShadow blurType="ONE_PASS_BOX">
+                     <color>
+                        <Color opacity="0.32487308979034424" />
+                     </color>
+                  </DropShadow>
+               </effect>
+               <FlowPane.margin>
+                  <Insets bottom="13.0" left="5.0" top="13.0" />
+               </FlowPane.margin>
+            </HBox>
+            <Label fx:id="service_group" contentDisplay="CENTER" prefHeight="55.0" prefWidth="177.0" styleClass="servicegroup_title" stylesheets="@stylesheets/font.css" text="Interior Services">
+               <font>
+                  <Font name="Segoe UI Semibold" size="21.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="0.29019609093666077" green="0.8117647171020508" blue="0.6235294342041016" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+               <FlowPane.margin>
+                  <Insets left="5.0" />
+               </FlowPane.margin>
+            </Label>
+         </children>
+         <VBox.margin>
+            <Insets bottom="-10.0" />
+         </VBox.margin>
+      </FlowPane>
+      <ScrollPane prefHeight="491.0" prefWidth="221.0">
+         <content>
+            <FlowPane prefHeight="483.0" prefWidth="203.0" vgap="15.0">
+               <padding>
+                  <Insets left="5.0" />
+               </padding>
+            </FlowPane>
+         </content>
+      </ScrollPane>
+   </children>
+   <effect>
+      <DropShadow blurType="ONE_PASS_BOX">
+         <color>
+            <Color red="0.2808000147342682" green="0.7200000286102295" blue="0.4198800027370453" opacity="0.23999999463558197" />
+         </color>
+      </DropShadow>
+   </effect>
+   <padding>
+      <Insets left="2.0" />
+   </padding>
+</VBox>
