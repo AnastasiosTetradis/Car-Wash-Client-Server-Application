@@ -21,7 +21,19 @@ public class Client extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        ServiceDB db = new ServiceDB();
 
+        try{
+            // db.addFromFile(new File("config.xml"));
+            URL url = getClass().getResource("data/config.xml");
+            File file = new File(url.getPath());
+
+            db.addFromFile(file);
+        }
+        catch(InputMismatchException e){
+            System.out.println("Wrong file format! Please rewrite config file carefuly.");
+        }
+        System.out.println(db.toString()); // Debugging Test
 
         FXMLLoader fxmlLoader = new FXMLLoader(Client.class.getResource("RegistrationNumber.fxml"));
         Parent mainPane = fxmlLoader.load();
