@@ -37,9 +37,12 @@
                </effect>
                <children>
                   <VBox prefHeight="200.0" prefWidth="383.0" stylesheets="@stylesheets/font.css">
+                  <VBox prefHeight="200.0" prefWidth="383.0" stylesheets="@stylesheets/font.css">
                      <children>
                         <Label fx:id="overheadtitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="383.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Please select vehicle type">
+                        <Label fx:id="overheadtitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="383.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Please select vehicle type">
                            <font>
+                              <Font name="Segoe UI Semibold" size="21.0" />
                               <Font name="Segoe UI Semibold" size="21.0" />
                            </font>
                            <textFill>
