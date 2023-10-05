@@ -35,3 +35,25 @@
 .servicegroup_title {
     -fx-font-size: 14;
 }
+
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);
+    -fx-background-radius: 11px 11px 0px 0px;
+    -fx-padding: 0 0 5px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}
