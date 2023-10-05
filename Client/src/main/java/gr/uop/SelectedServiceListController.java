@@ -11,20 +11,20 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
-public class ServiceSelectionController {
+public class SelectedServiceListController {
 
-    @FXML
-    private FlowPane serviceGroupHolder;
+        @FXML
+    private FlowPane serviceHolder;
 
     @FXML
     private Label totalCost;
-    
+
     public FlowPane getServiceGroupHolder() {
-        return serviceGroupHolder;
+        return serviceHolder;
     }
 
-    public void setServiceGroupHolder(FlowPane serviceGroupHolder) {
-        this.serviceGroupHolder = serviceGroupHolder;
+    public void setServiceGroupHolder(FlowPane serviceHolder) {
+        this.serviceHolder = serviceHolder;
     }
 
     public Label getTotalCost() {
@@ -41,7 +41,7 @@ public class ServiceSelectionController {
 
     @FXML
     public void switchToPreviousScene(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("VehicleType.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("ServiceSelection.fxml"));
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);
@@ -50,11 +50,6 @@ public class ServiceSelectionController {
 
     @FXML
     public void switchToNextScene(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("SelectedServiceList.fxml"));
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        
     }
-    
 }

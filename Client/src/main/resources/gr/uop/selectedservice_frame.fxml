@@ -18,7 +18,7 @@
          <children>
             <HBox alignment="CENTER" prefHeight="44.0" prefWidth="45.0" spacing="5.0" style="-fx-background-color: fff; -fx-background-radius: 30;">
                <children>
-                  <ImageView fx:id="service_icon" fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="groupIcon" fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@media/car%20wash.png" />
                      </image>
@@ -30,7 +30,7 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="190.0">
                <children>
-                  <Label fx:id="service_group" styleClass="vehicleoption" text="Exterior Wash">
+                  <Label fx:id="groupIcon" styleClass="vehicleoption" text="Exterior Wash">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -48,7 +48,7 @@
                         </LinearGradient>
                      </textFill>
                   </Label>
-                  <Label fx:id="service_name" layoutX="10.0" layoutY="10.0" text="In &amp; Out Standard">
+                  <Label fx:id="serviceΝame" layoutX="10.0" layoutY="10.0" text="In &amp; Out Standard">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -76,7 +76,7 @@
                   <Insets bottom="15.0" left="40.0" top="15.0" />
                </FlowPane.margin>
                <children>
-                  <Label fx:id="price" styleClass="vehicleoption" text="77 €">
+                  <Label fx:id="servicePrice" styleClass="vehicleoption" text="77 €">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -100,7 +100,7 @@
       </FlowPane>
       <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="73.0" prefWidth="155.0" style="-fx-background-color: linear-gradient(to right, #EAA3A380, #FF482F80); -fx-background-radius: 0 11 11 0;">
          <graphic>
-            <ImageView fx:id="remove_button" fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="removeButton" fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@media/twitter.png" />
                </image>

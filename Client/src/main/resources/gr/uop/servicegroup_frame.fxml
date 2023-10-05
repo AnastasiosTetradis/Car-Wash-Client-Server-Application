@@ -14,13 +14,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="interior_services" prefHeight="555.0" prefWidth="227.0" spacing="15.0" style="-fx-background-color: fff; -fx-background-radius: 11;" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="555.0" prefWidth="227.0" spacing="15.0" style="-fx-background-color: fff; -fx-background-radius: 11;" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.ServiceSelectionGroupController">
    <children>
       <FlowPane columnHalignment="CENTER" prefHeight="46.0" prefWidth="221.0">
          <children>
             <HBox alignment="CENTER" fillHeight="false" prefHeight="29.0" prefWidth="29.0" style="-fx-background-color: fff; -fx-background-radius: 30;">
                <children>
-                  <ImageView fx:id="service_icon" fitHeight="25.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="groupIcon" fitHeight="25.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@media/car%20wash.png" />
                      </image>
@@ -37,7 +37,7 @@
                   <Insets bottom="13.0" left="5.0" top="13.0" />
                </FlowPane.margin>
             </HBox>
-            <Label fx:id="service_group" contentDisplay="CENTER" prefHeight="55.0" prefWidth="177.0" styleClass="servicegroup_title" stylesheets="@stylesheets/font.css" text="Interior Services">
+            <Label fx:id="groupName" contentDisplay="CENTER" prefHeight="55.0" prefWidth="177.0" styleClass="servicegroup_title" stylesheets="@stylesheets/font.css" text="Interior Services">
                <font>
                   <Font name="Segoe UI Semibold" size="21.0" />
                </font>
@@ -68,7 +68,7 @@
       </FlowPane>
       <ScrollPane prefHeight="491.0" prefWidth="221.0">
          <content>
-            <FlowPane prefHeight="483.0" prefWidth="203.0" vgap="15.0">
+            <FlowPane fx:id="serviceHolder" prefHeight="483.0" prefWidth="203.0" vgap="15.0">
                <padding>
                   <Insets left="5.0" />
                </padding>

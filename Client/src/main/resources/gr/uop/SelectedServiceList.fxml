@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.ClientController">
+<BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.SelectedServiceListController">
    <center>
       <BorderPane maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -29,7 +29,7 @@
                      <children>
                         <VBox alignment="TOP_CENTER" fillWidth="false" maxWidth="1023.0" prefHeight="646.0" prefWidth="532.0" scaleShape="false" stylesheets="@stylesheets/font.css">
                            <children>
-                              <Label fx:id="overheadtitle" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="52.0" prefWidth="532.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Confirm Your Order">
+                              <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="52.0" prefWidth="532.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Confirm Your Order">
                                  <font>
                                     <Font name="Segoe UI Semibold" size="21.0" />
                                  </font>
@@ -53,7 +53,7 @@
                               <Line endX="430.29290771484375" endY="-2.8287065029144287" startX="-100.0" stroke="#ededed" />
                               <ScrollPane pannable="true" prefHeight="518.0" prefWidth="532.0" style="-fx-background-color: transparent;">
                                  <content>
-                                    <FlowPane prefHeight="490.0" prefWidth="509.0" style="-fx-background-color: fff;" vgap="10.0">
+                                    <FlowPane fx:id="serviceHolder" prefHeight="490.0" prefWidth="509.0" style="-fx-background-color: fff;" vgap="10.0">
                                        <padding>
                                           <Insets bottom="5.0" left="15.0" top="5.0" />
                                        </padding>
@@ -63,7 +63,7 @@
                               <Line endX="430.29290771484375" endY="-2.8287065029144287" layoutX="111.0" layoutY="72.0" startX="-100.0" stroke="#ededed" />
                               <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="281.0" stylesheets="@stylesheets/font.css">
                                  <children>
-                                    <Label fx:id="totalcost" prefHeight="39.0" prefWidth="153.0" style="-fx-background-color: fff; -fx-background-radius: 30 0 0 30;" styleClass="cost" text="Total Cost: 1080 €">
+                                    <Label fx:id="totalCost" prefHeight="39.0" prefWidth="153.0" style="-fx-background-color: fff; -fx-background-radius: 30 0 0 30;" styleClass="cost" text="Total Cost: 1080 €">
                                        <padding>
                                           <Insets left="10.0" />
                                        </padding>
@@ -87,7 +87,7 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="back_button11" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="148.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 30 30 0;">
+                                    <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="148.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 30 30 0;">
                                        <graphic>
                                           <HBox prefHeight="61.0" prefWidth="133.0">
                                              <children>
@@ -174,7 +174,7 @@
    <bottom>
       <Pane prefHeight="78.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="back_button" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
+            <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
                <graphic>
                   <HBox prefHeight="61.0" prefWidth="133.0">
                      <children>

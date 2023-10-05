@@ -13,11 +13,11 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<Button fx:id="vehicle_Jeep" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="323.0" style="-fx-background-color: fff; -fx-background-radius: 11;" styleClass="jeepbutton" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="75.0" prefWidth="323.0" style="-fx-background-color: fff; -fx-background-radius: 11;" styleClass="jeepbutton" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.VehicleTypeButtonController">
    <graphic>
       <HBox prefHeight="61.0" prefWidth="253.0">
          <children>
-            <ImageView fx:id="vehicle_icon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-y: 5;">
+            <ImageView fx:id="vehicleIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-y: 5;">
                <image>
                   <Image url="@media/car.png" />
                </image>
@@ -25,7 +25,7 @@
                   <Insets left="30.0" top="8.0" />
                </HBox.margin>
             </ImageView>
-            <Label fx:id="vehicle_name" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="234.0" styleClass="vehicleoption" text="Name">
+            <Label fx:id="vehicleName" alignment="CENTER" contentDisplay="CENTER" prefHeight="75.0" prefWidth="234.0" styleClass="vehicleoption" text="Name">
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>

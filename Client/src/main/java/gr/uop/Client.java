@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -18,13 +17,13 @@ import java.util.InputMismatchException;
 public class Client extends Application {
 
     private static Scene scene;
+    private static ServiceDB db = new ServiceDB();
 
+    
     @Override
     public void start(Stage stage) throws IOException {
-        ServiceDB db = new ServiceDB();
 
         try{
-            // db.addFromFile(new File("config.xml"));
             URL url = getClass().getResource("data/config.xml");
             File file = new File(url.getPath());
 

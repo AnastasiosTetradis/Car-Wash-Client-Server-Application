@@ -20,11 +20,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.ClientController">
+<BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.VehicleTypeController">
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <right>
-            <StackPane fx:id="reginfo" prefHeight="508.0" prefWidth="383.0" style="-fx-background-color: fff; -fx-background-radius: 12;" BorderPane.alignment="CENTER_RIGHT">
+            <StackPane prefHeight="508.0" prefWidth="383.0" style="-fx-background-color: fff; -fx-background-radius: 12;" BorderPane.alignment="CENTER_RIGHT">
                <BorderPane.margin>
                   <Insets bottom="50.0" right="50.0" top="130.0" />
                </BorderPane.margin>
@@ -38,7 +38,7 @@
                <children>
                   <VBox prefHeight="200.0" prefWidth="383.0" stylesheets="@stylesheets/font.css">
                      <children>
-                        <Label fx:id="overheadtitle" alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="383.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Please select vehicle type">
+                        <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="67.0" prefWidth="383.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Please select vehicle type">
                            <font>
                               <Font name="Segoe UI Semibold" size="21.0" />
                            </font>
@@ -64,7 +64,7 @@
                            <children>
                               <ScrollPane prefHeight="317.0" prefWidth="348.0">
                                  <content>
-                                    <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="311.0" prefWidth="332.0" vgap="20.0">
+                                    <FlowPane fx:id="vehicleButtonHolder" alignment="CENTER" columnHalignment="CENTER" prefHeight="311.0" prefWidth="332.0" vgap="20.0">
                                        <padding>
                                           <Insets top="5.0" />
                                        </padding>
@@ -76,7 +76,7 @@
                               <Insets left="25.0" right="10.0" top="20.0" />
                            </VBox.margin>
                         </VBox>
-                        <Button fx:id="continue_button" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToScene2" prefHeight="50.0" prefWidth="323.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
+                        <Button fx:id="continueΒutton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="50.0" prefWidth="323.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
                            <graphic>
                               <HBox prefHeight="61.0" prefWidth="253.0">
                                  <children>
@@ -157,7 +157,7 @@
    <bottom>
       <Pane prefHeight="78.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="back_button" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToScene0" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
+            <Button fx:id="backΒutton" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
                <graphic>
                   <HBox prefHeight="61.0" prefWidth="133.0">
                      <children>

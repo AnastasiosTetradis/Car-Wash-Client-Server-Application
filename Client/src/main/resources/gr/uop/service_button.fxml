@@ -11,11 +11,11 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 
-<VBox prefHeight="145.0" prefWidth="203.0" style="-fx-background-color: fff; -fx-background-radius: 11;" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="145.0" prefWidth="203.0" style="-fx-background-color: fff; -fx-background-radius: 11;" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.ServiceSelectionServiceController">
    <children>
       <HBox prefHeight="92.0" prefWidth="254.0">
          <children>
-            <Label fx:id="service_name" prefHeight="83.0" prefWidth="162.0" styleClass="vehicleoption" text="Standard" wrapText="true">
+            <Label fx:id="serviceName" prefHeight="83.0" prefWidth="162.0" styleClass="vehicleoption" text="Standard" wrapText="true">
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -36,7 +36,7 @@
                   <Insets left="10.0" />
                </HBox.margin>
             </Label>
-            <Label fx:id="price" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="71.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26); -fx-background-radius: 0 11 0 0;" styleClass="vehicleoption" text="90 €">
+            <Label fx:id="servicePrice" alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="71.0" prefWidth="82.0" style="-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26); -fx-background-radius: 0 11 0 0;" styleClass="vehicleoption" text="90 €">
                <textFill>
                   <LinearGradient endX="1.0" endY="1.0">
                      <stops>
@@ -56,7 +56,7 @@
             </Label>
          </children>
       </HBox>
-      <Button fx:id="select_button" mnemonicParsing="false" prefHeight="95.0" prefWidth="234.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 0 11 11;" styleClass="vehicleoption" text="Select" textFill="WHITE">
+      <Button fx:id="selectButton" mnemonicParsing="false" prefHeight="95.0" prefWidth="234.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 0 11 11;" styleClass="vehicleoption" text="Select" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
