@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.SelectedServiceListController">
+   <center>
+      <BorderPane maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="644.0" prefWidth="532.0" style="-fx-background-color: fff; -fx-background-radius: 11;" stylesheets="@stylesheets/font.css">
+                     <children>
+                        <VBox alignment="TOP_CENTER" fillWidth="false" maxWidth="1023.0" prefHeight="646.0" prefWidth="533.0" scaleShape="false" stylesheets="@stylesheets/font.css">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="511.0" prefWidth="519.0">
+                                 <children>
+                                    <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@media/orderconfirmed.png" />
+                                       </image></ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="52.0" prefWidth="532.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Thank you!">
+                                       <font>
+                                          <Font name="Segoe UI Semibold" size="21.0" />
+                                       </font>
+                                       <textFill>
+                                          <LinearGradient endX="1.0" endY="1.0">
+                                             <stops>
+                                                <Stop>
+                                                   <color>
+                                                      <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                                   </color>
+                                                </Stop>
+                                                <Stop offset="1.0">
+                                                   <color>
+                                                      <Color red="0.29019609093666077" green="0.8117647171020508" blue="0.6235294342041016" />
+                                                   </color>
+                                                </Stop>
+                                             </stops>
+                                          </LinearGradient>
+                                       </textFill>
+                                    </Label>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </VBox>
+                              <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="50.0" prefWidth="283.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 30;">
+                                 <graphic>
+                                    <HBox alignment="CENTER" prefHeight="61.0" prefWidth="133.0">
+                                       <children>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="258.0" styleClass="screenchange_button" stylesheets="@stylesheets/font.css" text="Back to Start" textFill="WHITE">
+                                             <font>
+                                                <Font name="Century Gothic Bold" size="15.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </HBox>
+                                 </graphic>
+                                 <effect>
+                                    <DropShadow>
+                                       <color>
+                                          <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.4313725531101227" opacity="0.30000001192092896" />
+                                       </color>
+                                    </DropShadow>
+                                 </effect>
+                                 <font>
+                                    <Font name="Century Gothic Bold" size="17.0" />
+                                 </font>
+                                 <textFill>
+                                    <LinearGradient endX="1.0" endY="1.0">
+                                       <stops>
+                                          <Stop>
+                                             <color>
+                                                <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                             </color>
+                                          </Stop>
+                                          <Stop offset="1.0">
+                                             <color>
+                                                <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                             </color>
+                                          </Stop>
+                                       </stops>
+                                    </LinearGradient>
+                                 </textFill>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <VBox.margin>
+                                    <Insets top="60.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                     <effect>
+                        <DropShadow blurType="ONE_PASS_BOX">
+                           <color>
+                              <Color red="0.2879999876022339" green="0.7200000286102295" blue="0.41760000586509705" opacity="0.4111675024032593" />
+                           </color>
+                        </DropShadow>
+                     </effect>
+                  </Pane>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="48.0" />
+               </BorderPane.margin>
+            </HBox>
+         </center>
+      </BorderPane>
+   </center>
+   <bottom>
+      <Pane prefHeight="78.0" prefWidth="1024.0" BorderPane.alignment="CENTER" />
+   </bottom>
+</BorderPane>
