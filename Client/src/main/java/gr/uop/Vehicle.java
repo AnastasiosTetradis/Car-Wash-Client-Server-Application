@@ -56,4 +56,44 @@ public class Vehicle {
         }
         return string;
     }
+
+    @Override
+    public boolean equals(Object obj)
+    {
+        // Διαγνωστική εκτύπωση
+        //System.out.println("in equals");
+        
+        // Έλεγχος για null
+        if (obj == null)  {
+            return false;
+        }
+        
+        // Προαιρετικά, έλεγχος αν πρόκειται για το ίδιο ακριβώς αντικείμενο
+        if (this == obj)  {
+            return true;
+        }
+        
+        // Έλεγχος αν ταιριάζουν οι κλάσεις
+        // (Μπορεί να χρησιμοποιηθεί και η getClass(), ανάλογα με τις ανάγκες
+        // της υλοποίησης)
+        if (obj instanceof Vehicle == false)  {
+            return false;
+        }
+        /*
+        if (obj.getClass() != this.getClass())  {
+            return false;
+        }
+        */
+        
+        // Μετατροπή τύπου από Object
+        Vehicle objVehicle = (Vehicle)obj;
+        
+        // Τελικά, υλοποίηση του ελέγχου ισότητας των πεδίων που ενδιαφέρουν
+        if (this.vehicleName.equals(objVehicle.vehicleName))  {
+            return true;
+        }
+        else  {
+            return false;
+        }
+    }
 }

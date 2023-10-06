@@ -2,6 +2,7 @@ package gr.uop;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class SelectedServiceController {
@@ -22,9 +23,10 @@ public class SelectedServiceController {
         return serviceName;
     }
 
-    public void setServiceName(Label serviceName) {
-        this.serviceName = serviceName;
-    }
+    // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
+    // public void setServiceName(Label serviceName) {
+    //     this.serviceName = serviceName;
+    // }
 
     public void setServiceName(String serviceName) {
         this.serviceName.setText(serviceName);
@@ -34,9 +36,10 @@ public class SelectedServiceController {
         return servicePrice;
     }
 
-    public void setServicePrice(Label servicePrice) {
-        this.servicePrice = servicePrice;
-    }
+    // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
+    // public void setServicePrice(Label servicePrice) {
+    //     this.servicePrice = servicePrice;
+    // }
 
     public void setServicePrice(String servicePrice) {
         this.servicePrice.setText(servicePrice);
@@ -46,9 +49,10 @@ public class SelectedServiceController {
         return groupName;
     }
 
-    public void setGroupName(Label groupName) {
-        this.groupName = groupName;
-    }
+    // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
+    // public void setGroupName(Label groupName) {
+    //     this.groupName = groupName;
+    // }
 
     public void setGroupName(String groupName) {
         this.groupName.setText(groupName);
@@ -58,7 +62,12 @@ public class SelectedServiceController {
         return groupIcon;
     }
 
-    public void setGroupIcon(ImageView groupIcon) {
-        this.groupIcon = groupIcon;
+    // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
+    // public void setGroupIcon(ImageView groupIcon) {
+    //     this.groupIcon = groupIcon;
+    // }
+
+    public void setGroupIcon(String iconPath) {
+        this.groupIcon.setImage(new Image(iconPath));
     }
 }

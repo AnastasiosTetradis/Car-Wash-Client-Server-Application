@@ -18,8 +18,25 @@ public class Client extends Application {
 
     private static Scene scene;
     private static ServiceDB db = new ServiceDB();
+    private static Order currentOrder = new Order();
 
+    public static ServiceDB getDb() {
+        return db;
+    }
+
+    public static void setDb(ServiceDB db) {
+        Client.db = db;
+    }
+
+    public static Order getCurrentOrder() {
+        return currentOrder;
+    }
+
+    public static void setCurrentOrder(Order currentOrder) {
+        Client.currentOrder = currentOrder;
+    }
     
+
     @Override
     public void start(Stage stage) throws IOException {
 

@@ -50,6 +50,18 @@ public class ServiceDB {
         return data.keySet();
     }
 
+    public Vehicle getVehicleByName(String vehicleName){
+        Iterator<Vehicle> iterator = this.getAllVehicles().iterator();
+        while(iterator.hasNext()){
+            Vehicle vehicle = iterator.next();
+
+            if(vehicle.getVehicleName().equals(vehicleName)){
+                return vehicle;
+            }
+        }
+        return null;
+    }
+
     public int getVehicleCount(){
         return data.keySet().size();
     }

@@ -81,7 +81,7 @@
     </vehicle>
     <vehicle>
         <vehicleName>Car</vehicleName>
-        <vehicleIcon></vehicleIcon>
+        <vehicleIcon>car.png</vehicleIcon>
         <serviceList>
             <serviceGroup>
                 <groupName>Interior Services</groupName>
@@ -161,7 +161,7 @@
     </vehicle>
     <vehicle>
         <vehicleName>Motorbike</vehicleName>
-        <vehicleIcon></vehicleIcon>
+        <vehicleIcon>motorcycle.png</vehicleIcon>
         <serviceList>
             <serviceGroup> 
                 <groupName>Interior Services</groupName>

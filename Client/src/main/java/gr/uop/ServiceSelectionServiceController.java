@@ -15,9 +15,10 @@ public class ServiceSelectionServiceController {
         return serviceName;
     }
 
-    public void setServiceName(Label serviceName) {
-        this.serviceName = serviceName;
-    }
+    // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
+    // public void setServiceName(Label serviceName) {
+    //     this.serviceName = serviceName;
+    // }
 
     public void setServiceName(String serviceName) {
         this.serviceName.setText(serviceName);
@@ -27,9 +28,10 @@ public class ServiceSelectionServiceController {
         return servicePrice;
     }
 
-    public void setServicePrice(Label servicePrice) {
-        this.servicePrice = servicePrice;
-    }
+    // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
+    // public void setServicePrice(Label servicePrice) {
+    //     this.servicePrice = servicePrice;
+    // }
 
     public void setServicePrice(String servicePrice) {
         this.servicePrice.setText(servicePrice);

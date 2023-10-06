@@ -23,17 +23,23 @@ public class SelectedServiceListController {
         return serviceHolder;
     }
 
-    public void setServiceGroupHolder(FlowPane serviceHolder) {
-        this.serviceHolder = serviceHolder;
+    // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
+    // public void setServiceGroupHolder(FlowPane serviceHolder) {
+    //     this.serviceHolder = serviceHolder;
+    // }
+
+    public void addToServiceHolder(Node serviceHolder){
+        this.serviceHolder.getChildren().add(serviceHolder);
     }
 
     public Label getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(Label totalCost) {
-        this.totalCost = totalCost;
-    }
+    // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
+    // public void setTotalCost(Label totalCost) {
+    //     this.totalCost = totalCost;
+    // }
 
     public void setTotalCost(String totalCost) {
         this.totalCost.setText(totalCost);
