@@ -1,6 +1,7 @@
 package gr.uop;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -19,6 +20,9 @@ public class SelectedServiceController {
     @FXML
     private ImageView groupIcon;
 
+    @FXML
+    private Button removeButton;
+
     public Label getServiceName() {
         return serviceName;
     }
@@ -29,7 +33,7 @@ public class SelectedServiceController {
     // }
 
     public void setServiceName(String serviceName) {
-        this.serviceName.setText(serviceName);
+        this.getGroupName().setText(serviceName);
     }
 
     public Label getServicePrice() {
@@ -69,5 +73,13 @@ public class SelectedServiceController {
 
     public void setGroupIcon(String iconPath) {
         this.groupIcon.setImage(new Image(iconPath));
+    }
+
+    public Button getRemoveButton() {
+        return removeButton;
+    }
+
+    public void setRemoveButton(String removeButton) {
+        this.removeButton.setText(removeButton);
     }
 }

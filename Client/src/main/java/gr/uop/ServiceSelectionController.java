@@ -14,13 +14,12 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 public class ServiceSelectionController {
 
     private static LinkedHashMap<Service, ServiceSelectionServiceController> serviceMap = new LinkedHashMap<>();
-
-    private double totalCost = 0;
 
     public static LinkedHashMap<Service, ServiceSelectionServiceController> getServiceMap(){
         return serviceMap;
@@ -61,14 +60,6 @@ public class ServiceSelectionController {
         serviceMap.put(service, controller);
     }
 
-    public double getTotalCost() {
-        return totalCost;
-    }
-
-    public void setTotalCost(double totalCost) {
-        this.totalCost = totalCost;
-    }
-
     @FXML
     private FlowPane serviceGroupHolder;
 
@@ -98,11 +89,11 @@ public class ServiceSelectionController {
     // }
 
     public void setTotalCostLabel(String totalCost) {
-        this.totalCostLabel.setText(totalCost);
+        getTotalCostLabel().setText(totalCost);
     }
 
     public void updateTotalCostLabel(){
-        setTotalCostLabel("Total Cost: " + getTotalCost() + " €");
+        setTotalCostLabel("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost())  + " €");
     }
 
     @FXML
@@ -149,7 +140,37 @@ public class ServiceSelectionController {
 
     @FXML
     public void switchToNextScene(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("SelectedServiceList.fxml"));
+        // Get SelectedServiceList FXML
+        FXMLLoader selectedServiceListLoader = new FXMLLoader(getClass().getResource("SelectedServiceList.fxml"));
+        Parent root = selectedServiceListLoader.load();
+        SelectedServiceListController selectedServiceListController = selectedServiceListLoader.getController();
+
+        // For every selected service
+        Iterator<Service> serviceIterator = Client.getCurrentOrder().getServices().iterator();
+        while(serviceIterator.hasNext()){
+
+            // Get selected Service
+            Service currentService = serviceIterator.next();
+
+            // Get selectedServiceFrame FXML
+            FXMLLoader selectedServiceLoader = new FXMLLoader(getClass().getResource("selectedservice_frame.fxml")); 
+            HBox selectedServiceButton = selectedServiceLoader.load();
+            SelectedServiceController selectedServiceController = selectedServiceLoader.getController();
+
+            // Set up selectedServiceFrame FXML
+            selectedServiceController.setServiceName(currentService.getServiceName());
+            selectedServiceController.setServicePrice(currentService.getServicePrice() + " €");
+
+            String iconName = currentService.getServiceGroup().getGroupIcon().strip();
+            if(!iconName.equals("")){
+                selectedServiceController.setGroupIcon(getClass().getResource("data/" + iconName).toString());
+            }
+            
+            // Add selectedServiceFrame FXML to VehicleTypeSelection FXML
+            selectedServiceListController.addToServiceHolder(selectedServiceButton);
+            selectedServiceListController.setTotalCost("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost()) + " €");
+        }
+
         Scene scene = new Scene(root);
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(scene);

@@ -46,10 +46,12 @@ public class Order {
 
     public void addService(Service service){
         this.services.add(service);
+        this.updateTotalCost();
     }
 
     public void removeService(Service service){
         this.services.remove(service);
+        this.updateTotalCost();
     }
 
     public double getTotalCost() {
@@ -58,6 +60,14 @@ public class Order {
 
     public void setTotalCost(double totalCost) {
         this.totalCost = totalCost;
+    }
+
+    public void updateTotalCost(){
+        double sum = 0;
+        for(Service service: this.getServices()){
+            sum += service.getServicePrice();
+        }
+        this.setTotalCost(sum);
     }
 
     public LocalDateTime getArrivalDateTime() {
