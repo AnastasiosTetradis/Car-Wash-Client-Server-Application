@@ -2,6 +2,8 @@ package gr.uop;
 
 import java.io.IOException;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +18,48 @@ import javafx.stage.Stage;
 
 public class ServiceSelectionController {
 
+    private static LinkedHashMap<Service, ServiceSelectionServiceController> serviceMap = new LinkedHashMap<>();
+
     private double totalCost = 0;
+
+    public static LinkedHashMap<Service, ServiceSelectionServiceController> getServiceMap(){
+        return serviceMap;
+    }
+
+    public static Set<Service> getServices(){
+        return serviceMap.keySet();
+    }
+
+    public static Service getServiceByNameAndGroup(String serviceName, ServiceGroup serviceGroup){
+        Iterator<Service> iterator = getServices().iterator();
+        while(iterator.hasNext()){
+            Service currentService = iterator.next();
+            if(currentService.getServiceName().equals(serviceName) && currentService.getServiceGroup().equals(serviceGroup)){
+                return currentService;
+            }
+        }
+        return null;
+    }
+
+    public static Service getServiceByController(ServiceSelectionServiceController controller){
+        Iterator<Service> iterator = getServices().iterator();
+        while(iterator.hasNext()){
+            Service currentService = iterator.next();
+            ServiceSelectionServiceController currentController = getServiceController(currentService);
+            if(currentController == controller){
+                return currentService;
+            }
+        }
+        return null;
+    }
+
+    public static ServiceSelectionServiceController getServiceController(Service service){
+        return serviceMap.get(service);
+    }
+
+    public static void addService(Service service, ServiceSelectionServiceController controller){
+        serviceMap.put(service, controller);
+    }
 
     public double getTotalCost() {
         return totalCost;

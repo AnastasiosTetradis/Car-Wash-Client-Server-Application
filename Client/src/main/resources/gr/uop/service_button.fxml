@@ -56,7 +56,7 @@
             </Label>
          </children>
       </HBox>
-      <Button fx:id="selectButton" mnemonicParsing="false" prefHeight="95.0" prefWidth="234.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 0 11 11;" styleClass="vehicleoption" text="Select" textFill="WHITE">
+      <Button fx:id="selectButton" mnemonicParsing="false" onAction="#select" prefHeight="95.0" prefWidth="234.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 0 11 11;" styleClass="vehicleoption" text="Select" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

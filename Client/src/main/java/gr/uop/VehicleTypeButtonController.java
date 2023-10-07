@@ -74,12 +74,10 @@ public class VehicleTypeButtonController {
     }
 
     public void deselect(){
-
         System.out.println("Deselecting " + this.vehicleName.getText());
 
         // Style code for deselecting
         this.selectButton.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 11");      
-
     }
 
 }

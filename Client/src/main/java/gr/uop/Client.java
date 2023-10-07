@@ -47,7 +47,7 @@ public class Client extends Application {
             db.addFromFile(file);
         }
         catch(InputMismatchException e){
-            System.out.println("Wrong file format! Please rewrite config file carefuly.");
+            System.out.println("Wrong file format! Please rewrite config file carefully.");
         }
         System.out.println(db.toString()); // Debugging Test
 

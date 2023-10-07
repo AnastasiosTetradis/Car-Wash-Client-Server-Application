@@ -43,6 +43,15 @@ public class Service {
         this.serviceValues = serviceValues;
     }
 
+    public boolean containsValues(ArrayList<Integer> serviceValues){
+        for(Integer serviceValue: serviceValues){
+            if(this.serviceValues.contains(serviceValue)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void addServiceValue(Integer value) {
         this.serviceValues.add(value);
     }

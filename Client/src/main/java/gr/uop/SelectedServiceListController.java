@@ -84,19 +84,33 @@ public class SelectedServiceListController {
                 // Get current service FXML
                 FXMLLoader serviceLoader = new FXMLLoader(getClass().getResource("service_button.fxml")); 
                 VBox serviceVbox = serviceLoader.load();
-                ServiceSelectionServiceController serviceController = serviceLoader.getController();
+                ServiceSelectionServiceController currentServiceController = serviceLoader.getController();
 
                 // Set up current service FXML
-                serviceController.setServiceName(currentService.getServiceName());
-                serviceController.setServicePrice(currentService.getServicePrice() + " €");
+                currentServiceController.setServiceName(currentService.getServiceName());
+                currentServiceController.setServicePrice(currentService.getServicePrice() + " €");
                 
                 // Add service FXML to ServiceGroup FXML
                 serviceGroupController.addToServiceHolder(serviceVbox);
+
+                
+                // Add service with its controller to serviceMap
+                ServiceSelectionController.addService(currentService, currentServiceController);
+                System.out.println("In serviceMap: " + currentService);
             }
 
             // Add ServiceGroup FXML to ServiceSelection FXML
             serviceSelectionController.addToServiceGroupHolder(groupVbox);
             serviceSelectionController.updateTotalCostLabel();
+        }
+
+        // Reselect all already selected services 
+        Iterator<Service> serviceIterator = ServiceSelectionController.getServices().iterator();
+        while(serviceIterator.hasNext()){
+            Service currentService = serviceIterator.next();
+            if(Client.getCurrentOrder().containsService(currentService)){
+                ServiceSelectionController.getServiceController(currentService).reselect();
+            }
         }
 
         System.out.println("FlowPanes children: " + serviceSelectionController.getServiceGroupHolder().getChildren().size());
