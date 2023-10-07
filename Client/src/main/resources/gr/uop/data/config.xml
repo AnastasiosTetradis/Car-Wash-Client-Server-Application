@@ -1,11 +1,11 @@
 <vehicles>
     <vehicle>
         <vehicleName>Jeep</vehicleName>
-        <vehicleIcon></vehicleIcon>
+        <vehicleIcon>jeep.png</vehicleIcon>
         <serviceList>
             <serviceGroup>
                 <groupName>Interior Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>Standard</serviceName>
@@ -26,7 +26,7 @@
             </serviceGroup>
             <serviceGroup>
                 <groupName>Exterior Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>Standard</serviceName>
@@ -42,7 +42,7 @@
             </serviceGroup>
             <serviceGroup>
                 <groupName>Combined Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>In & Out Standard</serviceName>
@@ -58,7 +58,7 @@
             </serviceGroup>
             <serviceGroup>
                 <groupName>Extra Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>extraserviceicon.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>Engine</serviceName>
@@ -85,7 +85,7 @@
         <serviceList>
             <serviceGroup>
                 <groupName>Interior Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>Standard</serviceName>
@@ -106,7 +106,7 @@
             </serviceGroup>
             <serviceGroup>
                 <groupName>Exterior Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>Standard</serviceName>
@@ -122,7 +122,7 @@
             </serviceGroup>
             <serviceGroup>
                 <groupName>Combined Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>In & Out Standard</serviceName>
@@ -138,7 +138,7 @@
             </serviceGroup>
             <serviceGroup>
                 <groupName>Extra Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>extraserviceicon.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>Engine</serviceName>
@@ -165,13 +165,13 @@
         <serviceList>
             <serviceGroup> 
                 <groupName>Interior Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                 </services>
             </serviceGroup>
             <serviceGroup>
                 <groupName>Exterior Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>Standard</serviceName>
@@ -187,13 +187,13 @@
             </serviceGroup>
             <serviceGroup>
                 <groupName>Combined Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>car_wash.png</groupIcon>
                 <services>
                 </services>
             </serviceGroup>
             <serviceGroup>
                 <groupName>Extra Services</groupName>
-                <groupIcon></groupIcon>
+                <groupIcon>extraserviceicon.png</groupIcon>
                 <services>
                     <service>
                         <serviceName>Engine</serviceName>

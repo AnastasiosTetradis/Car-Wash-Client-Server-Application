@@ -16,11 +16,21 @@ import javafx.stage.Stage;
 
 public class ServiceSelectionController {
 
+    private double totalCost = 0;
+
+    public double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
+
     @FXML
     private FlowPane serviceGroupHolder;
 
     @FXML
-    private Label totalCost;
+    private Label totalCostLabel;
     
     public FlowPane getServiceGroupHolder() {
         return serviceGroupHolder;
@@ -35,8 +45,8 @@ public class ServiceSelectionController {
         this.serviceGroupHolder.getChildren().add(serviceGroupHolder);
     }
 
-    public Label getTotalCost() {
-        return totalCost;
+    public Label getTotalCostLabel() {
+        return totalCostLabel;
     }
 
     // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
@@ -44,8 +54,12 @@ public class ServiceSelectionController {
     //     this.totalCost = totalCost;
     // }
 
-    public void setTotalCost(String totalCost) {
-        this.totalCost.setText(totalCost);
+    public void setTotalCostLabel(String totalCost) {
+        this.totalCostLabel.setText(totalCost);
+    }
+
+    public void updateTotalCostLabel(){
+        setTotalCostLabel("Total Cost: " + getTotalCost() + " €");
     }
 
     @FXML

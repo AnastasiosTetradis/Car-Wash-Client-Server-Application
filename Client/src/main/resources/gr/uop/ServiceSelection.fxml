@@ -132,7 +132,7 @@
                <children>
                   <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="281.0" stylesheets="@stylesheets/font.css">
                      <children>
-                        <Label fx:id="totalCost" prefHeight="39.0" prefWidth="153.0" style="-fx-background-color: fff; -fx-background-radius: 30 0 0 30;" styleClass="cost" text="Total Cost: 1080 €">
+                        <Label fx:id="totalCostLabel" prefHeight="39.0" prefWidth="153.0" style="-fx-background-color: fff; -fx-background-radius: 30 0 0 30;" styleClass="cost" text="Total Cost: 1080 €">
                            <padding>
                               <Insets left="10.0" />
                            </padding>

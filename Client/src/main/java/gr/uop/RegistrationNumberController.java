@@ -42,10 +42,9 @@ public class RegistrationNumberController {
         FXMLLoader vehicleTypeLoader = new FXMLLoader(getClass().getResource("VehicleType.fxml"));
         Parent root = vehicleTypeLoader.load();
         VehicleTypeController vehicleTypeController = vehicleTypeLoader.getController();
-        vehicleTypeController.getVehicleButtonHolder();
 
         // For every available vehicle
-        Iterator vehicleIterator = Client.getDb().getAllVehicles().iterator();
+        Iterator<Vehicle> vehicleIterator = Client.getDb().getAllVehicles().iterator();
         while(vehicleIterator.hasNext()){
 
             // Get vehicle

@@ -22,7 +22,7 @@
                <children>
                   <ImageView fx:id="groupIcon" fitHeight="25.0" fitWidth="12.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@media/car%20wash.png" />
+                        <Image url="@media/defaultgroupicon.png" />
                      </image>
                   </ImageView>
                </children>

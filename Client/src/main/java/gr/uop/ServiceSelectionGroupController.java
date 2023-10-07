@@ -16,7 +16,7 @@ public class ServiceSelectionGroupController {
     private ImageView groupIcon; 
 
     @FXML
-    private FlowPane groupHolder;
+    private FlowPane serviceHolder;
 
     public Label getGroupName() {
         return groupName;
@@ -44,17 +44,17 @@ public class ServiceSelectionGroupController {
         this.groupIcon.setImage(new Image(iconPath));
     }
 
-    public FlowPane getGroupHolder() {
-        return groupHolder;
+    public FlowPane getServiceHolder() {
+        return serviceHolder;
     }
 
-    public void addToGroupHolder(Node groupHolder){
-        this.groupHolder.getChildren().add(groupHolder);
+    public void addToServiceHolder(Node serviceHolder){
+        this.serviceHolder.getChildren().add(serviceHolder);
     }
 
     // https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview
-    // public void setGroupHolder(FlowPane groupHolder) {
-    //     this.groupHolder = groupHolder;
+    // public void setServiceHolder(FlowPane serviceHolder) {
+    //     this.serviceHolder = serviceHolder;
     // }
 
 }
