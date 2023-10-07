@@ -22,7 +22,7 @@ public class SelectedServiceListController {
     @FXML
     private Label totalCost;
 
-    public FlowPane getServiceGroupHolder() {
+    public FlowPane getServiceHolder() {
         return serviceHolder;
     }
 
@@ -124,6 +124,23 @@ public class SelectedServiceListController {
 
     @FXML
     public void switchToNextScene(ActionEvent event) throws IOException{
-        
+        // Connecting to Server
+
+        // Sending Order
+
+        // Reseting order
+        Client.setCurrentOrder(new Order());
+        System.out.println("Client order reset!");
+
+
+        // Get ThankYouSelection FXML
+        FXMLLoader thankYouLoader = new FXMLLoader(getClass().getResource("ThankYou.fxml"));
+        Parent root = thankYouLoader.load();
+        // ThankYouController thankYouController = thankYouLoader.getController();
+
+        Scene scene = new Scene(root);
+        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
     }
 }

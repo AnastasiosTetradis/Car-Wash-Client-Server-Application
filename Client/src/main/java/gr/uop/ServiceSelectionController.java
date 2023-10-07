@@ -166,7 +166,7 @@ public class ServiceSelectionController {
                 selectedServiceController.setGroupIcon(getClass().getResource("data/" + iconName).toString());
             }
             
-            // Add selectedServiceFrame FXML to VehicleTypeSelection FXML
+            // Add selectedServiceFrame FXML to SelectedServiceList FXML
             selectedServiceListController.addToServiceHolder(selectedServiceButton);
             selectedServiceListController.setTotalCost("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost()) + " €");
         }
