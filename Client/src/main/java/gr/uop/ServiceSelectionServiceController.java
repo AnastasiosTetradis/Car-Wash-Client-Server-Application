@@ -79,7 +79,7 @@ public class ServiceSelectionServiceController {
         Client.getCurrentOrder().addService(selectedService);
 
         // Style code for selecting
-        this.selectButton.setStyle("-fx-background-color:  white;-fx-background-radius:  0 0 11 11;-fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F)");      
+        this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius:  0 0 11 11;-fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F)");      
         this.selectButton.setText("Selected");
     }
 
@@ -101,7 +101,7 @@ public class ServiceSelectionServiceController {
         System.out.println("Reselecting " + this.serviceName.getText());
 
         // Style code for selecting
-        this.selectButton.setStyle("-fx-background-color:  white;-fx-background-radius:  0 0 11 11;-fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F)");      
+        this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius:  0 0 11 11;-fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F)");      
         this.selectButton.setText("Selected");
     }
 }
