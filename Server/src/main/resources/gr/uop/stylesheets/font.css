@@ -1,0 +1,59 @@
+@font-face {
+    font-family: 'Montserrat SemiBold';
+    src: url('fonts/Montserrat-SemiBold.ttf');
+}
+
+.text {
+    -fx-font-family: "Montserrat SemiBold";
+    /* -fx-font-size: 15; */
+}
+
+.scroll-pane > .viewport {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.overheadtitle {
+    -fx-font-size: 18;
+}
+
+.vehicleoption {
+    -fx-font-size: 17;
+}
+
+.screenchange_button {
+    -fx-font-size: 16;
+}
+
+.cost {
+    -fx-font-size: 13;
+}
+
+.servicegroup_title {
+    -fx-font-size: 14;
+}
+
+.table-view {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header-background{
+    -fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);
+    -fx-background-radius: 11px 11px 0px 0px;
+    -fx-padding: 0 0 5px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+}

@@ -18,19 +18,18 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1080.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.ServerController">
    <center>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <Pane fx:id="reginfo" prefHeight="660.0" prefWidth="610.0" style="-fx-background-color: fff; -fx-background-radius: 11;">
+            <Pane prefHeight="660.0" prefWidth="610.0" style="-fx-background-color: fff; -fx-background-radius: 11;">
                <HBox.margin>
                   <Insets bottom="20.0" left="10.0" top="20.0" />
                </HBox.margin>
                <children>
                   <VBox alignment="TOP_CENTER" prefHeight="660.0" prefWidth="611.0" style="-fx-background-color: &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&lt;?import javafx.geometry.Insets?&gt;&lt;?import javafx.scene.control.ScrollPane?&gt;&lt;?import javafx.scene.layout.FlowPane?&gt;&lt;ScrollPane pannable=&quot;true&quot; prefHeight=&quot;518.0&quot; prefWidth=&quot;532.0&quot; style=&quot;-fx-background-color: transparent;&quot; xmlns=&quot;http://javafx.com/javafx/19&quot; xmlns:fx=&quot;http://javafx.com/fxml/1&quot;&gt;   &lt;content&gt;      &lt;FlowPane prefHeight=&quot;490.0&quot; prefWidth=&quot;509.0&quot; style=&quot;-fx-background-color: fff;&quot; vgap=&quot;10.0&quot;&gt;         &lt;padding&gt;            &lt;Insets bottom=&quot;5.0&quot; left=&quot;15.0&quot; top=&quot;5.0&quot; /&gt;         &lt;/padding&gt;      &lt;/FlowPane&gt;   &lt;/content&gt;&lt;/ScrollPane&gt;;" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css">
                      <children>
-                        <Label fx:id="overheadtitle1" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="62.0" prefWidth="612.0" styleClass="overheadtitle" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css" text="Customer Table" VBox.vgrow="ALWAYS">
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="62.0" prefWidth="612.0" styleClass="overheadtitle" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css" text="Customer Table" VBox.vgrow="ALWAYS">
                            <font>
                               <Font name="Segoe UI Semibold" size="21.0" />
                            </font>
@@ -52,12 +51,12 @@
                            </textFill>
                         </Label>
                         <Line endX="510.0" startX="-100.0" stroke="#ededed" />
-                        <TableView prefHeight="495.0" prefWidth="591.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26); -fx-background-radius: 11;">
+                        <TableView fx:id="orderHolder" prefHeight="495.0" prefWidth="591.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26); -fx-background-radius: 11;">
                           <columns>
-                            <TableColumn prefWidth="157.99996852874756" text="Registration Number" />
-                            <TableColumn prefWidth="163.99996948242188" text="Vehicle" />
-                              <TableColumn prefWidth="101.3333740234375" text="Cost" />
-                              <TableColumn prefWidth="169.33331298828125" text="Entry Time" />
+                            <TableColumn fx:id="registrationNumberCol" prefWidth="157.99996852874756" text="Registration Number" />
+                            <TableColumn fx:id="vehicleCol" prefWidth="163.99996948242188" text="Vehicle" />
+                              <TableColumn fx:id="costCol" prefWidth="101.3333740234375" text="Cost" />
+                              <TableColumn fx:id="entryTimeCol" prefWidth="169.33331298828125" text="Entry Time" />
                           </columns>
                            <VBox.margin>
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
@@ -76,7 +75,7 @@
             </Pane>
             <VBox alignment="CENTER" fillWidth="false" maxWidth="1023.0" prefHeight="660.0" prefWidth="429.0" scaleShape="false" style="-fx-background-color: fff; -fx-background-radius: 11;" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css">
                <children>
-                  <Label fx:id="overheadtitle" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="62.0" prefWidth="396.0" styleClass="overheadtitle" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css" text="Selected Services">
+                  <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="62.0" prefWidth="396.0" styleClass="overheadtitle" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css" text="Selected Services">
                      <font>
                         <Font name="Segoe UI Semibold" size="21.0" />
                      </font>
@@ -100,7 +99,7 @@
                   <Line endX="300.0" startX="-127.0" stroke="#ededed" />
                   <ScrollPane pannable="true" prefHeight="513.0" prefWidth="426.0" style="-fx-background-color: transparent;">
                      <content>
-                        <FlowPane prefHeight="505.0" prefWidth="399.0" style="-fx-background-color: fff;" vgap="10.0">
+                        <FlowPane fx:id="serviceHolder" prefHeight="505.0" prefWidth="399.0" style="-fx-background-color: fff;" vgap="10.0">
                            <padding>
                               <Insets bottom="5.0" left="10.0" top="5.0" />
                            </padding>
@@ -109,8 +108,8 @@
                   </ScrollPane>
                   <HBox alignment="CENTER" prefHeight="72.0" prefWidth="429.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button disable="true" mnemonicParsing="false" prefHeight="123.0" prefWidth="215.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 0 0 11;" styleClass="vehicleoption" text="Proceed Order" textFill="WHITE" />
-                        <Button disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="215.0" style="-fx-background-color: linear-gradient(to right, #FB1E1Ebf, #FF482FBF); -fx-background-radius: 0 0 11 0;" styleClass="vehicleoption" text="Cancel Order" textFill="WHITE" />
+                        <Button fx:id="proceedButton" disable="true" mnemonicParsing="false" prefHeight="123.0" prefWidth="215.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 0 0 11;" styleClass="vehicleoption" text="Proceed Order" textFill="WHITE" />
+                        <Button fx:id="cancelButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="126.0" prefWidth="215.0" style="-fx-background-color: linear-gradient(to right, #FB1E1Ebf, #FF482FBF); -fx-background-radius: 0 0 11 0;" styleClass="vehicleoption" text="Cancel Order" textFill="WHITE" />
                      </children>
                   </HBox>
                </children>

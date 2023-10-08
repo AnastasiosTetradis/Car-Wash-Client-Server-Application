@@ -157,7 +157,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_P" layoutX="367.0" layoutY="10.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="P" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_P" layoutX="367.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="P" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
