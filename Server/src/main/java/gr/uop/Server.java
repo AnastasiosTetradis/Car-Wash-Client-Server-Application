@@ -2,18 +2,14 @@ package gr.uop;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.EOFException;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.Scanner;
 
@@ -24,7 +20,17 @@ public class Server extends Application {
 
     private static Scene scene;
 
-    public static ObservableList<Order> readOrder(){
+    private static OrderQueue orderQueue = new OrderQueue();
+
+    public static OrderQueue getOrderQueue() {
+        return orderQueue;
+    }
+
+    public static void setOrderQueue(OrderQueue orderQueue) {
+        Server.orderQueue = orderQueue;
+    }
+
+    public static ObservableList<Order> readOrderFromFile(){
         URL url = Server.class.getResource("data/profit_file.txt");
         File file = new File(url.getPath());
         ObservableList<Order> orderList = FXCollections.observableArrayList();
@@ -60,7 +66,7 @@ public class Server extends Application {
             }
         }
         catch(IOException e){
-            System.out.println("Loop Stopped");
+            System.out.println("Loop Stopped real hard !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             System.out.println(orderList.get(0));
         }
         return orderList;
@@ -70,6 +76,9 @@ public class Server extends Application {
     public void start(Stage stage) throws IOException, ClassNotFoundException {
         FXMLLoader fxmlLoader = new FXMLLoader(Server.class.getResource("cashier.fxml"));
         Parent mainPane = fxmlLoader.load();
+
+        orderQueue.setOrderListFromFile();
+        orderQueue.getOrderList().remove(0);
 
         Scene scene = new Scene(mainPane, 1024, 768);
         stage.setScene(scene);
