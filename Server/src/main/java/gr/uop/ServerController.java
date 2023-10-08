@@ -1,10 +1,13 @@
 package gr.uop;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
-
+import java.util.ArrayList;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -49,10 +52,20 @@ public class ServerController {
         });
 
         // https://stackoverflow.com/questions/26424769/javafx8-how-to-create-listener-for-selection-of-row-in-tableview
-        orderHolder.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            proceedButton.setDisable(false);
-            cancelButton.setDisable(false);
-            // updateServiceHolder();
+        orderHolder.setOnMouseClicked(event -> {
+            // Make sure the user clicked on a populated item
+            Order selectedOrder = orderHolder.getSelectionModel().getSelectedItem();
+            if(selectedOrder != null){
+
+                proceedButton.setDisable(false);
+                cancelButton.setDisable(false);
+                updateServiceHolder(selectedOrder);
+            }
+            else{
+                proceedButton.setDisable(true);
+                cancelButton.setDisable(true);
+                clearServiceHolder();
+            }
         });
     }
 
@@ -67,5 +80,42 @@ public class ServerController {
 
         //Adding data to the table
         orderHolder.setItems(orderList);
+    }
+
+    public void updateServiceHolder(Order selectedOrder){
+        ArrayList<Service> services =  selectedOrder.getServices();
+        serviceHolder.getChildren().clear();
+
+        // For every Service in selectedOrder
+        for(Service service :services){
+            // Get Service FXML
+            FXMLLoader serviceFrameLoader = new FXMLLoader(getClass().getResource("selectedservice_frame.fxml"));
+            Parent serviceRoot = null;
+            try{
+                serviceRoot = serviceFrameLoader.load();
+            }
+            catch(IOException e){
+                System.out.println("FXML file doesn't exist. Please find it.");
+            }
+
+            // Get frame controller
+            ServiceFrameController serviceFrameController = serviceFrameLoader.getController();
+
+            // Set service group name in frame
+            serviceFrameController.setServiceGroupLabel(service.getServiceGroup().getGroupName());
+
+            // Set service name in frame
+            serviceFrameController.setServiceNameLabel(service.getServiceName());
+
+            // Set service price in frame
+            serviceFrameController.setServicePriceLabel(service.getServicePrice() + " €");
+
+            // Add service pane to serviceHolder
+            serviceHolder.getChildren().add(serviceRoot);
+        }
+    }
+
+    public void clearServiceHolder(){
+        serviceHolder.getChildren().clear();
     }
 }

@@ -14,10 +14,15 @@ public class OrderQueue {
         this.orderList = orderList;
     }
 
+    public void addToOrderList(Order order) {
+        getOrderList().add(order);
+    }
+
     public void setOrderListFromFile() {
         // Initialize Lists
         ObservableList<Order> unfinishedOrders = FXCollections.observableArrayList();
-        ObservableList<Order> allOrders = Server.readOrderFromFile();
+        unfinishedOrders.add(new Order()); // Dummy order for proper tableView visual
+        ObservableList<Order> allOrders = Server.readOrdersFromFile();
 
         // For every order in profit file
         for(Order order :allOrders){
@@ -27,11 +32,15 @@ public class OrderQueue {
             }
         }
 
+        
         // Fill orderList with unfinishedOrders
         this.orderList.clear();
         for(Order order: unfinishedOrders){
-            this.orderList.add(order);
+            addToOrderList(order);
+            System.out.println(" ADDING ORDER: " + order.getRegistrationNumber());
         }
-
+        System.out.println("Orders found in unfinishedOrders: " + unfinishedOrders.size());
+        System.out.println("Orders found in allOrders: " + allOrders.size());
+        System.out.println("Orders found in orderList: " + orderList.size());
     }
 }

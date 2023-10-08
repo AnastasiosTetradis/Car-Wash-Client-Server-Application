@@ -1,3 +1,3 @@
-IIII;Jeep;[Wax & Polish:90.0,Chassis:3.0];93.0;null;null
-GUGJJ;Car;[Special:8.0,Special:9.0,Engine:20.0,Wax & Polish:80.0,Chassis:3.0];120.0;null;null
-JHHD;Motorbike;[Engine:10.0,Special:8.0,Wax & Polish:40.0];58.0;null;null
+OOO;Motorbike;[Wax & Polish:40.0:Extra Services,Engine:10.0:Extra Services];50.0;null;null
+III;Jeep;[Special:10.0:Exterior Services,Biological:80.0:Interior Services,Wax & Polish:90.0:Extra Services,Engine:20.0:Extra Services,Chassis:3.0:Extra Services];203.0;null;null
+JJJ;Car;[In & Out Special:15.0:Combined Services];15.0;null;null

@@ -9,13 +9,13 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 
-<HBox alignment="CENTER" prefHeight="75.0" prefWidth="396.0" style="-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26); -fx-background-radius: 11;" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" prefHeight="75.0" prefWidth="396.0" style="-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26); -fx-background-radius: 11;" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.ServiceFrameController">
    <children>
       <FlowPane prefHeight="220.0" prefWidth="388.0">
          <children>
             <VBox alignment="CENTER_LEFT" prefHeight="75.0" prefWidth="280.0">
                <children>
-                  <Label fx:id="service_group11" styleClass="vehicleoption" text="Very Expensive Services">
+                  <Label fx:id="serviceGroupLabel" styleClass="vehicleoption" text="Very Expensive Services">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -33,7 +33,7 @@
                         </LinearGradient>
                      </textFill>
                   </Label>
-                  <Label fx:id="service_name11" layoutX="10.0" layoutY="10.0" prefHeight="15.0" prefWidth="211.0" text="Nowhere &amp; Nowhere Standard">
+                  <Label fx:id="serviceNameLabel" layoutX="10.0" layoutY="10.0" prefHeight="15.0" prefWidth="211.0" text="Nowhere &amp; Nowhere Standard">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -61,7 +61,7 @@
                   <Insets bottom="15.0" top="15.0" />
                </FlowPane.margin>
                <children>
-                  <Label fx:id="price11" styleClass="vehicleoption" text="77 €">
+                  <Label fx:id="servicePriceLabel" styleClass="vehicleoption" text="77 €">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>

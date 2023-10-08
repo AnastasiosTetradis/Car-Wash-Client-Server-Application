@@ -9,7 +9,7 @@ public class ServiceGroup implements Serializable{
     private ArrayList<Service> services = new ArrayList<>();
 
     public ServiceGroup(){
-
+        
     }
 
     public ServiceGroup(String groupName, String groupIcon){

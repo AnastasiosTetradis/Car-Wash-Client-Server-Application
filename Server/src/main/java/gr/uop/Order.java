@@ -99,8 +99,12 @@ public class Order implements Serializable{
         String string = registrationNumber + ";" + vehicleType + ";";
 
         string += "[";
-        for(Service service: services){
-            string += service.getServiceName() + ":" + service.getServicePrice() + ",";
+        for(int i = 0; i < services.size(); i++){
+            Service service = services.get(i);
+            string += service.getServiceName() + ":" + service.getServicePrice() + ":" + service.getServiceGroup().getGroupName();
+            if(i != services.size()-1){
+                string += ",";
+            }
         }
         string += "]";
 
