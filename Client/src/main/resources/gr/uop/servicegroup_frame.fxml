@@ -29,7 +29,7 @@
                <effect>
                   <DropShadow blurType="ONE_PASS_BOX">
                      <color>
-                        <Color opacity="0.32487308979034424" />
+                        <Color opacity="0.10000000149011612" />
                      </color>
                   </DropShadow>
                </effect>

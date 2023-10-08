@@ -56,13 +56,13 @@ public class Client extends Application {
 
         scene = new Scene(mainPane, 1024, 768);
         stage.setScene(scene);
-        stage.setTitle("Client - Registration Input Page");
+        stage.setTitle("Client");
 
         stage.show();
         
         // Setting Max and Minimum Size
-        stage.setMinWidth(1024);
-        stage.setMinHeight(768);
+        stage.setMinWidth(1039);
+        stage.setMinHeight(805);
 
         stage.setMaxWidth(1920);
         stage.setMaxHeight(1080);

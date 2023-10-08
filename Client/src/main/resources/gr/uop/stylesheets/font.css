@@ -57,3 +57,94 @@
 .table-view .column-header .label {
     -fx-text-fill: white;
 }
+
+.continuebuttontext {
+    -fx-font-size:16;
+}
+
+.buttongreen:hover {
+    
+    -fx-background-color:  linear-gradient(to right, #8adeb1, #4ACF9F);
+}
+
+.buttongreen:pressed {
+    -fx-background-color: linear-gradient(to right, #369d64, #4ACF9F);
+}
+
+.buttongreen {
+    -fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);
+    -fx-background-radius: 60;
+}
+
+.buttongreen.half {
+    -fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);
+    -fx-background-radius: 0 60 60 0;
+}
+
+.buttongreen.half:hover {
+    
+    -fx-background-color:  linear-gradient(to right, #8adeb1, #4ACF9F);
+}
+
+.buttongreen.half:pressed {
+    -fx-background-color: linear-gradient(to right, #369d64, #4ACF9F);
+}
+
+.buttongreen:hover {
+    -fx-graphic: url("arrowgreen.png");
+}
+
+.keyboardwhitebutton {
+    -fx-background-color:  #ffffff;
+    -fx-background-radius: 6;
+    -fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F);
+}
+
+.keyboardwhitebutton:hover {
+    -fx-background-color:  #f0f0f0;
+    -fx-background-radius: 6;
+}
+
+/* ---------------- test colors  ------------------------*/
+
+.keyboardwhitebutton1 {
+    -fx-background-color:  #ffffff;
+    -fx-background-radius: 6;
+    -fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F);
+}
+
+.keyboardwhitebutton1:hover {
+    -fx-background-color:  #f0f0f0;
+    -fx-background-radius: 6;
+}
+
+.keyboardwhitebutton1:pressed {
+    -fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);
+    -fx-text-fill: white;
+    -fx-background-radius: 6;
+}
+/* ---------------------  ------------------------------*/
+
+.keyboardwhitebutton:pressed {
+    -fx-background-color:  linear-gradient(to right, #47bb7c26, #4ACF9F26);
+    -fx-background-radius: 6;
+}
+
+.keyboardgreenbutton {
+    -fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);
+    -fx-background-radius: 6;
+}
+
+.keyboardgreenbutton:hover {
+    -fx-background-color:  linear-gradient(to right, #8adeb1, #4ACF9F);
+    -fx-background-radius: 6;
+}
+
+.keyboardgreenbutton:pressed {
+    -fx-background-color: linear-gradient(to right, #369d64, #4ACF9F);
+    -fx-background-radius: 6;
+}
+
+.buttongreen.half:pressed {
+    -fx-background-color: linear-gradient(to right, #369d64, #4ACF9F);
+}

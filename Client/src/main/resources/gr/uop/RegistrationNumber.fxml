@@ -22,12 +22,12 @@
          <children>
             <HBox alignment="CENTER" prefHeight="67.0" prefWidth="1019.0" style="-fx-spacing: 7;">
                <children>
-                  <Button fx:id="key_Q" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="Q" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_Q" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="Q" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -37,12 +37,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_W" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="W" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_W" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="W" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -52,12 +52,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_E" layoutX="55.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="E" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_E" layoutX="55.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="E" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -67,12 +67,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_R" layoutX="99.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="R" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_R" layoutX="99.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="R" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -82,12 +82,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_T" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="T" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_T" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="T" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -97,12 +97,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_Y" layoutX="189.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="Y" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_Y" layoutX="189.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="Y" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -112,12 +112,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_U" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="U" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_U" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="U" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -127,12 +127,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_I" layoutX="278.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="I" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_I" layoutX="278.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="I" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -142,12 +142,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_O" layoutX="323.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="O" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_O" layoutX="323.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="O" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -157,12 +157,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_P" layoutX="367.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="P" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_P" layoutX="367.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="P" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -172,12 +172,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_7" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="7" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_7" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="7" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -190,12 +190,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_8" layoutX="472.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="8" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_8" layoutX="472.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="8" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -205,12 +205,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_9" layoutX="517.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="9" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_9" layoutX="517.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="9" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -233,12 +233,12 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <children>
-                  <Button fx:id="key_A" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="A" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_A" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="A" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -251,12 +251,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_S" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 7;" text="S" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_S" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="S" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -266,12 +266,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_D" layoutX="55.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 7;" text="D" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_D" layoutX="55.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="D" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -281,12 +281,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_F" layoutX="99.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="F" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_F" layoutX="99.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="F" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -296,12 +296,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_G" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="G" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_G" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="G" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -311,12 +311,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_H" layoutX="189.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="H" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_H" layoutX="189.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="H" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -326,12 +326,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_J" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="J" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_J" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="J" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -341,12 +341,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_K" layoutX="278.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="K" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_K" layoutX="278.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="K" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -356,12 +356,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_L" layoutX="323.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="L" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_L" layoutX="323.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="L" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -371,12 +371,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_4" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="4" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_4" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="4" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -389,12 +389,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_5" layoutX="472.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="5" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_5" layoutX="472.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="5" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -404,12 +404,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_6" layoutX="517.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="6" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_6" layoutX="517.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="6" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -429,12 +429,12 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <children>
-                  <Button fx:id="key_Z" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="Z" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_Z" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="Z" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -447,12 +447,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_X" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="X" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_X" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="X" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -462,12 +462,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_C" layoutX="55.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="C" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_C" layoutX="55.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="C" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -477,12 +477,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_V" layoutX="99.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="V" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_V" layoutX="99.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="V" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -492,12 +492,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_B" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="B" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_B" layoutX="144.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="B" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -507,12 +507,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_N" layoutX="189.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="N" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_N" layoutX="189.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="N" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -522,12 +522,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_M" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="M" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_M" layoutX="233.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="M" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -537,12 +537,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_Backspace" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="120.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="Backspace" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_Backspace" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="120.0" styleClass="keyboardwhitebutton" text="Backspace" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -555,12 +555,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_1" layoutX="477.0" layoutY="15.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="1" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_1" layoutX="477.0" layoutY="15.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="1" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -573,12 +573,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_2" layoutX="640.0" layoutY="15.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="2" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_2" layoutX="640.0" layoutY="15.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="2" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -588,12 +588,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_3" layoutX="673.0" layoutY="15.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="3" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_3" layoutX="673.0" layoutY="15.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="3" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -613,12 +613,12 @@
                   <Cursor fx:constant="DEFAULT" />
                </cursor>
                <children>
-                  <Button fx:id="key_Language" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="EN" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_Language" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="57.0" styleClass="keyboardwhitebutton" text="EN" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -634,12 +634,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_Space" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="412.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="_" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_Space" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="412.0" styleClass="keyboardwhitebutton" text="_" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -649,12 +649,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_Enter" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="153.0" style="-fx-background-color: linear-gradient(to right, #47BB7C, #4ACF9F); -fx-background-radius: 6;" text="Enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="key_Enter" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="153.0" styleClass="keyboardgreenbutton" text="Enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Century Gothic Bold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -667,12 +667,12 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_0" layoutX="472.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="185.0" style="-fx-background-color: fff; -fx-background-radius: 6;" text="0" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
+                  <Button fx:id="key_0" layoutX="472.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="185.0" styleClass="keyboardwhitebutton" text="0" textAlignment="CENTER" textFill="#47ba6d" wrapText="true">
                      <font>
                         <Font name="Segoe UI Semibold" size="14.0" />
                      </font>
                      <effect>
-                        <DropShadow>
+                        <DropShadow blurType="ONE_PASS_BOX">
                            <color>
                               <Color red="0.7982456088066101" green="0.7982456088066101" blue="0.7982456088066101" />
                            </color>
@@ -714,7 +714,7 @@
                   <Insets bottom="130.0" right="70.0" top="130.0" />
                </BorderPane.margin>
                <effect>
-                  <DropShadow>
+                  <DropShadow blurType="ONE_PASS_BOX">
                      <color>
                         <Color red="0.2773999869823456" green="0.7300000190734863" blue="0.4282666742801666" opacity="0.3299492299556732" />
                      </color>
@@ -739,7 +739,7 @@
                                     <Font name="Century Gothic" size="15.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="continueButton" disable="true" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="53.0" prefWidth="171.0" style="-fx-background-radius: 35; -fx-background-color: linear-gradient(to right, #47BB7C, #4ACF9F);" textFill="WHITE">
+                              <Button fx:id="continueButton" disable="true" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="53.0" prefWidth="171.0" styleClass="buttongreen" textFill="WHITE">
                                  <HBox.margin>
                                     <Insets bottom="35.0" left="10.0" right="10.0" top="35.0" />
                                  </HBox.margin>
@@ -747,7 +747,7 @@
                                     <Font name="Century Gothic Bold" size="15.0" />
                                  </font>
                                  <effect>
-                                    <DropShadow>
+                                    <DropShadow blurType="ONE_PASS_BOX">
                                        <color>
                                           <Color red="0.8666666746139526" green="0.8666666746139526" blue="0.8666666746139526" />
                                        </color>

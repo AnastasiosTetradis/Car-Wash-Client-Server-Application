@@ -76,7 +76,7 @@
                               <Insets left="25.0" right="10.0" top="20.0" />
                            </VBox.margin>
                         </VBox>
-                        <Button fx:id="continueΒutton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="50.0" prefWidth="323.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
+                        <Button fx:id="continueΒutton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="50.0" prefWidth="323.0" styleClass="buttongreen">
                            <graphic>
                               <HBox prefHeight="61.0" prefWidth="253.0">
                                  <children>
@@ -155,9 +155,9 @@
       </BorderPane>
    </center>
    <bottom>
-      <Pane prefHeight="78.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="78.0" prefWidth="1024.0" stylesheets="@stylesheets/font.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="backΒutton" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
+            <Button fx:id="backΒutton" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="39.0" prefWidth="135.0" styleClass="buttongreen">
                <graphic>
                   <HBox prefHeight="61.0" prefWidth="133.0">
                      <children>

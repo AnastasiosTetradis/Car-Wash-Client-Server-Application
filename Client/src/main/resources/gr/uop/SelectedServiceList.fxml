@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -87,7 +88,7 @@
                                           <Font size="13.0" />
                                        </font>
                                     </Label>
-                                    <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="39.0" prefWidth="148.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 0 30 30 0;">
+                                    <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="39.0" prefWidth="148.0">
                                        <graphic>
                                           <HBox prefHeight="61.0" prefWidth="133.0">
                                              <children>
@@ -139,6 +140,10 @@
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
+                                       <styleClass>
+                                          <String fx:value="buttongreen" />
+                                          <String fx:value="half" />
+                                       </styleClass>
                                     </Button>
                                  </children>
                                  <effect>
@@ -172,9 +177,9 @@
       </BorderPane>
    </center>
    <bottom>
-      <Pane prefHeight="78.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+      <Pane prefHeight="78.0" prefWidth="1024.0" stylesheets="@stylesheets/font.css" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="39.0" prefWidth="135.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F);; -fx-background-radius: 60;">
+            <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" layoutX="7.0" layoutY="19.0" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="39.0" prefWidth="135.0" styleClass="buttongreen">
                <graphic>
                   <HBox prefHeight="61.0" prefWidth="133.0">
                      <children>

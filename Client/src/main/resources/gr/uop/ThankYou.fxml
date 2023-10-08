@@ -58,7 +58,7 @@
                                     <Insets />
                                  </VBox.margin>
                               </VBox>
-                              <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="50.0" prefWidth="283.0" style="-fx-background-color: linear-gradient(to right, #47bb7c, #4ACF9F); -fx-background-radius: 30;">
+                              <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="50.0" prefWidth="283.0" styleClass="buttongreen">
                                  <graphic>
                                     <HBox alignment="CENTER" prefHeight="61.0" prefWidth="133.0">
                                        <children>

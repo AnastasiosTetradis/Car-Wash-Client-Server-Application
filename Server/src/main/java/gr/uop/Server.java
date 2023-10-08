@@ -80,11 +80,18 @@ public class Server extends Application {
         orderQueue.setOrderListFromFile();
         orderQueue.getOrderList().remove(0);
 
-        Scene scene = new Scene(mainPane, 1024, 768);
+        Scene scene = new Scene(mainPane, 1080, 700);
         stage.setScene(scene);
-        stage.setTitle("Client - Registration Input Page");
+        stage.setTitle("Car Reception Register");
 
         stage.show();
+
+        // Setting Max and Minimum Size
+        stage.setMinWidth(1095);
+        stage.setMinHeight(737);
+
+        stage.setMaxWidth(1920);
+        stage.setMaxHeight(1080);
     }
 
     public static void main(String[] args) {

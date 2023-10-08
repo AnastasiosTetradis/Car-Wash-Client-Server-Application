@@ -57,3 +57,31 @@
 .table-view .column-header .label {
     -fx-text-fill: white;
 }
+
+.proceedbutton {
+    -fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);
+    -fx-text-fill: white;
+    -fx-background-radius:  0 0 0 11;
+}
+
+.proceedbutton:hover {
+    -fx-background-color:  linear-gradient(to right, #8adeb1, #4ACF9F);
+}
+
+.proceedbutton:pressed {
+    -fx-background-color: linear-gradient(to right, #369d64, #4ACF9F);
+}
+
+.cancelbutton {
+    -fx-background-color:   linear-gradient(to right, #FB1E1Ebf, #FF482FBF);
+    -fx-text-fill: white;
+    -fx-background-radius:  0 0 11 0;
+}
+
+.cancelbutton:hover {
+    -fx-background-color:   linear-gradient(to right, #f4aaaabf, #FF482FBF);
+}
+
+.cancelbutton:pressed {
+    -fx-background-color: linear-gradient(to right, #ad2525bf, #FF482FBF);
+}

@@ -9,7 +9,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 
-<HBox alignment="CENTER" prefHeight="75.0" prefWidth="396.0" style="-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26); -fx-background-radius: 11;" stylesheets="@../../../../Client/src/main/resources/gr/uop/stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<HBox alignment="CENTER" prefHeight="75.0" prefWidth="396.0" style="-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26); -fx-background-radius: 11;" stylesheets="@stylesheets/font.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <FlowPane prefHeight="220.0" prefWidth="388.0">
          <children>
