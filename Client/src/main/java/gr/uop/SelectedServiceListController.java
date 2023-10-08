@@ -127,6 +127,7 @@ public class SelectedServiceListController {
         // Connecting to Server
 
         // Sending Order
+        System.out.println(Client.getCurrentOrder().toCSV());
 
         // Reseting order
         Client.setCurrentOrder(new Order());
