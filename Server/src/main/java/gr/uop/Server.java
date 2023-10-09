@@ -30,7 +30,7 @@ public class Server extends Application {
         Server.orderQueue = orderQueue;
     }
 
-    public static ObservableList<Order> readOrderFromFile(){
+    public static ObservableList<Order> readOrdersFromFile(){
         URL url = Server.class.getResource("data/profit_file.txt");
         File file = new File(url.getPath());
         ObservableList<Order> orderList = FXCollections.observableArrayList();
@@ -38,7 +38,7 @@ public class Server extends Application {
             Scanner scanner = new Scanner(file);
             while(scanner.hasNextLine()){
                 Order order = new Order();
-                String row[] = scanner.nextLine().split(";");
+                String row[] = scanner.nextLine().strip().split(";");
                 // Set Reg Number
                 order.setRegistrationNumber(row[0]);
 
@@ -52,8 +52,17 @@ public class Server extends Application {
 
                     Service service = new Service();
 
+                    // Set service name
                     service.setServiceName(serviceData[0]);
+
+                    // Set service price
                     service.setServicePrice(Double.parseDouble(serviceData[1]));
+                    
+                    // Set service group (for the group name later)
+                    ServiceGroup serviceGroup = new ServiceGroup();
+                    serviceGroup.setGroupName(serviceData[2]);
+                    service.setServiceGroup(serviceGroup);
+
                     order.addService(service);
                 }
 
@@ -64,9 +73,11 @@ public class Server extends Application {
 
                 System.out.println("Receive order:" + orderList.toString());
             }
+            System.out.println("Orders found in file: " + orderList.size());
+            scanner.close();
         }
         catch(IOException e){
-            System.out.println("Loop Stopped real hard !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            System.out.println("Loop Stopped !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
             System.out.println(orderList.get(0));
         }
         return orderList;
