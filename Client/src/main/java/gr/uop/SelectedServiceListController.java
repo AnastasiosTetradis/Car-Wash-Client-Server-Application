@@ -1,6 +1,7 @@
 package gr.uop;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Iterator;
 
 import javafx.event.ActionEvent;
@@ -127,6 +128,7 @@ public class SelectedServiceListController {
         // Connecting to Server
 
         // Sending Order
+        Client.getCurrentOrder().setArrivalDateTime(LocalDateTime.now());
         System.out.println(Client.getCurrentOrder().toCSV());
 
         // Reseting order

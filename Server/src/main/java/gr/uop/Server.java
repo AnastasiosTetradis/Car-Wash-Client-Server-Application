@@ -6,11 +6,20 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Label;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 /**
@@ -69,6 +78,23 @@ public class Server extends Application {
                 // Set totalCost
                 order.setTotalCost(Double.parseDouble(row[3]));
 
+                // Set Arrival DateTime
+                if(row[4].equals("null")){
+                    order.setArrivalDateTime(null);
+                }
+                else{
+                    order.setArrivalDateTime(LocalDateTime.parse(row[4]));
+                }
+
+                // Set Departure DateTime
+                if(row[5].equals("null")){
+                    order.setDepartureDateTime(null);
+                }
+                else{
+                    order.setDepartureDateTime(LocalDateTime.parse(row[5]));
+                }
+                
+
                 orderList.add(order);
 
                 System.out.println("Receive order:" + orderList.toString());
@@ -81,6 +107,74 @@ public class Server extends Application {
             System.out.println(orderList.get(0));
         }
         return orderList;
+    }
+
+    public static void completeOrderInFile(Order order){
+        //  Complete string for insertion
+        String completeString = order.toCSV() + "\n";
+        
+        // Construct incomplete String (Replace last DateTime with null)
+        String incompleteString = completeString.replace(completeString.split(";")[5], "");
+        System.out.println("Removed token: " + completeString.split(";")[5]);
+        for(String string :completeString.split(";")){
+            System.out.println("Split token == " + string);
+        }
+        System.out.println("Incomplete String == " + incompleteString);
+        replaceInFile(incompleteString, completeString);
+        orderQueue.getOrderList().remove(order);
+    }
+
+    public static void deleteOrderInFile(Order order){
+        //  Complete string for insertion
+        String completeString = order.toCSV();
+        String incompleteString = completeString.replace(completeString.split(";")[5], "");
+        System.out.println("Split tokens == " + completeString.split(";"));
+        System.out.println("Incomplete String == " + incompleteString);
+
+        
+        // Replace string with ""
+        replaceInFile(incompleteString, "");
+        orderQueue.getOrderList().remove(order);
+    }
+
+    public static void replaceInFile(String target, String replacement){
+        URL url = Server.class.getResource("data/profit_file.txt");
+        File file = new File(url.getPath());
+        try{
+            String fileString = "";
+            Scanner scanner = new Scanner(file);
+
+            //Storing all data from file into a string 
+            while(scanner.hasNextLine()){
+                String currentLine = scanner.nextLine() + "\n"; // Stupid nextLine() method takes my \n away >:(
+                System.out.println("\n\nSearching line \"" + currentLine + "\" \nwith\n \"" + target + "\"\n\n");
+                if(currentLine.contains(target)){
+                    currentLine = replacement;
+                    System.out.println("Writting replacement " + replacement);
+                }
+                fileString += currentLine;
+            }
+
+            scanner.close();
+
+            System.out.println("File path == " + url.getPath());
+
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(fileString);
+            fileWriter.flush();
+            fileWriter.close();
+
+            // OutputStreamWriter out = new OutputStreamWriter(new FileOutputStream(url.getPath()));
+            // out.write(fileString);
+            // out.flush();
+            // out.close();
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File not found. Please find it.");
+        }
+        catch(IOException e){
+            System.out.println("File not found. Please find it.");
+        }
     }
 
     @Override
@@ -103,6 +197,32 @@ public class Server extends Application {
 
         stage.setMaxWidth(1920);
         stage.setMaxHeight(1080);
+
+        stage.setOnCloseRequest((e) -> {
+            if(orderQueue.getOrderList().size() >= 1){
+                // Απλό παράθυρο μηνύματος (Alert). Δίνεται ο τύπος (INFORMATION, WARNING, ERROR).
+                Alert alert = new Alert(AlertType.INFORMATION);
+    
+                // Βασικά στοιχεία του παραθύρου
+                alert.setTitle("Unproceeded Orders");
+                alert.setContentText("Please proceed all remaining orders first.");
+                alert.setHeaderText("Unproceeded Orders!");
+    
+                // Αν θα μπλοκάρει το παράθυρο της εφαρμογής.
+                alert.initModality(Modality.WINDOW_MODAL);
+    
+                // Ανάθεση του «γονικού» παραθύρου, ώστε να γνωρίζει ποιο θα μπλοκάρει.
+                alert.initOwner(stage);
+    
+                // Δυνατότητα ελέγχου των κουμπιών που εμφανίζονται για το Alert.
+                alert.initStyle(StageStyle.DECORATED);
+    
+                alert.show();
+
+                e.consume();
+                return;
+            }
+        });
     }
 
     public static void main(String[] args) {

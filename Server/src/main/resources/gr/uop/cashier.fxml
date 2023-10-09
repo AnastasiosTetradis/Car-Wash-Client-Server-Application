@@ -101,17 +101,17 @@
                   <Line endX="300.0" startX="-127.0" stroke="#ededed" />
                   <ScrollPane pannable="true" prefHeight="513.0" prefWidth="426.0" style="-fx-background-color: transparent;">
                      <content>
-                        <FlowPane fx:id="serviceHolder" prefHeight="505.0" prefWidth="399.0" style="-fx-background-color: fff;" vgap="10.0">
+                        <FlowPane fx:id="serviceHolder" prefHeight="505.0" prefWidth="399.0" style="-fx-background-color: #ffffff;" vgap="10.0">
                            <padding>
                               <Insets bottom="5.0" left="10.0" top="5.0" />
                            </padding>
                         </FlowPane>
                      </content>
                   </ScrollPane>
-                  <Region prefHeight="0.0" prefWidth="200.0" style="-fx-background-color: 000000;" VBox.vgrow="ALWAYS" />
+                  <Region prefHeight="0.0" prefWidth="200.0" style="-fx-background-color: #ffffff;" VBox.vgrow="ALWAYS" />
                   <HBox alignment="CENTER" prefHeight="72.0" prefWidth="429.0" VBox.vgrow="NEVER">
                      <children>
-                        <Button fx:id="proceedButton" disable="true" mnemonicParsing="false" pickOnBounds="false" prefHeight="123.0" prefWidth="214.5" text="Proceed Order" textFill="WHITE" wrapText="true">
+                        <Button fx:id="proceedButton" disable="true" mnemonicParsing="false" onAction="#proceedOrder" pickOnBounds="false" prefHeight="123.0" prefWidth="214.5" text="Proceed Order" textFill="WHITE" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
@@ -119,7 +119,7 @@
                               <String fx:value="vehicleoption" />
                               <String fx:value="proceedbutton" />
                            </styleClass></Button>
-                        <Button fx:id="cancelButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="123.0" prefWidth="214.5" text="Cancel Order" textFill="WHITE" wrapText="true">
+                        <Button fx:id="cancelButton" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelOrder" pickOnBounds="false" prefHeight="123.0" prefWidth="214.5" text="Cancel Order" textFill="WHITE" wrapText="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>

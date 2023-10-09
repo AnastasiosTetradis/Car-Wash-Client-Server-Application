@@ -67,6 +67,18 @@ public class ServerController {
                 clearServiceHolder();
             }
         });
+
+        orderHolder.getSelectionModel().selectedIndexProperty().addListener((obs, oldSelection, newSelection) -> {
+            int index = orderHolder.getSelectionModel().getSelectedIndex();
+            if(index < 0){
+                proceedButton.setDisable(false);
+                cancelButton.setDisable(false);
+            }
+            else{
+                proceedButton.setDisable(true);
+                cancelButton.setDisable(true);
+            }
+        }); 
     }
 
     @FXML
@@ -80,6 +92,22 @@ public class ServerController {
 
         //Adding data to the table
         orderHolder.setItems(orderList);
+    }
+
+    @FXML
+    public void proceedOrder(){
+        Order selectedOrder = orderHolder.getSelectionModel().getSelectedItem();
+        selectedOrder.setDepartureDateTime(LocalDateTime.now());
+        System.out.println(LocalDateTime.now());
+        Server.completeOrderInFile(selectedOrder);
+        clearServiceHolder();
+    }
+
+    @FXML
+    public void cancelOrder(){
+        Order selectedOrder = orderHolder.getSelectionModel().getSelectedItem();
+        Server.deleteOrderInFile(selectedOrder);
+        clearServiceHolder();
     }
 
     public void updateServiceHolder(Order selectedOrder){
