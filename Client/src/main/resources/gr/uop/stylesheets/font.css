@@ -90,10 +90,6 @@
     -fx-background-color: linear-gradient(to right, #369d64, #4ACF9F);
 }
 
-.buttongreen:hover {
-    -fx-graphic: url("arrowgreen.png");
-}
-
 .keyboardwhitebutton {
     -fx-background-color:  #ffffff;
     -fx-background-radius: 6;

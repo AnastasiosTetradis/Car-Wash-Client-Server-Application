@@ -106,6 +106,8 @@ public class Server extends Application {
     }
 
     public static void main(String[] args) {
+        // https://stackoverflow.com/questions/27311222/javafx-getting-class-cast-exception-in-css-for-blend-mode
+        // https://bugs.openjdk.org/browse/JDK-8088468
         launch();
     }
 
