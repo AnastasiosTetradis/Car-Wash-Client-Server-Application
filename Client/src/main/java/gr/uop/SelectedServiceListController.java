@@ -1,27 +1,19 @@
 package gr.uop;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
 import java.util.Iterator;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class SelectedServiceListController {
 
-    private static ObservableList<Service> serviceObserver = FXCollections.observableArrayList();
+    // private static ObservableList<Service> serviceObserver = FXCollections.observableArrayList();
 
     @FXML
     private FlowPane serviceHolder;
@@ -32,24 +24,25 @@ public class SelectedServiceListController {
     @FXML
     private Button continueButton;
 
-    public static ObservableList<Service> getServiceObserver() {
-        return serviceObserver;
-    }
+    @FXML
+    public void initialize() {
+        Client.getServiceObserver().addListener((ListChangeListener.Change<? extends Service> c) -> {
+            Client.getCurrentOrder().clearServices();
+            Iterator<Service> serviceIterator = Client.getServiceObserver().iterator();
+            while(serviceIterator.hasNext()){
+                Service currentService = serviceIterator.next();
+                Client.getCurrentOrder().addService(currentService);
+            }
 
-    public static void setServiceObserver(ObservableList<Service> serviceObserverList) {
-        serviceObserver = serviceObserverList;
-    }
-
-    public static void setServiceObserver(Service service) {
-        serviceObserver.set(0, service);
-    }
-
-    public static void addToServiceObserver(Service service){
-        serviceObserver.add(service);
-    }
-
-    public static void removeFromServiceObserver(Service service){
-        serviceObserver.remove(service);
+            updateTotalCost();
+            updateServiceHolder();
+            if(Client.getServiceObserver().size() >= 1){
+                continueButton.setDisable(false);
+            }
+            else{
+                continueButton.setDisable(true);
+            }
+        });
     }
 
     public FlowPane getServiceHolder() {
@@ -69,6 +62,16 @@ public class SelectedServiceListController {
         this.serviceHolder.getChildren().remove(serviceHolder);
     }
 
+    public void updateServiceHolder() {
+        try {
+            serviceHolder.getChildren().clear();
+            Client.generateServiceHolder(this);
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Selected Service Page could not be loaded.");
+        }
+    }
+
     public Label getTotalCost() {
         return totalCost;
     }
@@ -80,6 +83,10 @@ public class SelectedServiceListController {
 
     public void setTotalCost(String totalCost) {
         this.totalCost.setText(totalCost);
+    }
+
+    public void updateTotalCost(){
+        setTotalCost("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost())  + " €");
     }
 
     public Button getContinueButton() {
@@ -114,6 +121,7 @@ public class SelectedServiceListController {
 
     @FXML
     public void switchToNextScene(ActionEvent event) throws IOException{
+        Client.clearData();
         Client.switchToThankYouPage();
     }
 }

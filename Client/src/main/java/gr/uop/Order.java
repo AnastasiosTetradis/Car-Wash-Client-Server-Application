@@ -55,6 +55,11 @@ public class Order implements Serializable{
         this.updateTotalCost();
     }
 
+    public void clearServices() {
+        this.services.clear();
+        this.updateTotalCost();
+    }
+
     public double getTotalCost() {
         return totalCost;
     }

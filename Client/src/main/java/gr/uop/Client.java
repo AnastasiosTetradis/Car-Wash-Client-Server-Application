@@ -1,8 +1,9 @@
 package gr.uop;
 
 import javafx.application.Application;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -16,6 +17,8 @@ import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 
 /**
@@ -26,6 +29,13 @@ public class Client extends Application {
     private static Scene scene = new Scene(new Pane(), 1024, 768);
     private static ServiceDB db = new ServiceDB();
     private static Order currentOrder = new Order();
+
+    private static LinkedHashMap<Vehicle, VehicleTypeButtonController> vehicleMap = new LinkedHashMap<>();
+    private static ObservableList<Vehicle> vehicleTypeObserver = FXCollections.observableArrayList((Vehicle)null);
+    private static ObservableList<Service> serviceObserver = FXCollections.observableArrayList();
+    private static LinkedHashMap<Service, ServiceSelectionServiceController> serviceSelectionMap = new LinkedHashMap<>();
+    private static LinkedHashMap<Service, SelectedServiceController> selectedServiceMap = new LinkedHashMap<>();
+
 
     public static ServiceDB getDb() {
         return db;
@@ -42,7 +52,152 @@ public class Client extends Application {
     public static void setCurrentOrder(Order currentOrder) {
         Client.currentOrder = currentOrder;
     }
+
+    public static LinkedHashMap<Vehicle, VehicleTypeButtonController> getVehicleMap() {
+        return vehicleMap;
+    }
+
+    public static void setVehicleMap(LinkedHashMap<Vehicle, VehicleTypeButtonController> vehicleMapCopy) {
+        vehicleMap = vehicleMapCopy;
+    }
+
+    public static Set<Vehicle> getVehiclesFromVehicleMap() {
+        return vehicleMap.keySet();
+    }
+
+    public static void addVehicleToVehicleMap(Vehicle vehicle, VehicleTypeButtonController controller) {
+        vehicleMap.put(vehicle, controller);
+    }
+
+    public static VehicleTypeButtonController getVehicleControllerFromVehicleMap(Vehicle vehicle){
+        return vehicleMap.get(vehicle);
+    }
+
+    public static Vehicle getVehicleByControllerFromVehicleMap(VehicleTypeButtonController controller){
+        Iterator<Vehicle> iterator = getVehiclesFromVehicleMap().iterator();
+        while(iterator.hasNext()){
+            Vehicle currentVehicle = iterator.next();
+            VehicleTypeButtonController currentController = getVehicleControllerFromVehicleMap(currentVehicle);
+            if(currentController == controller){
+                return currentVehicle;
+            }
+        }
+        return null;
+    }
+
+    public static ObservableList<Vehicle> getVehicleTypeObserver() {
+        return vehicleTypeObserver;
+    }
+
+    public static void setVehicleTypeObserver(ObservableList<Vehicle> vehicleTypeObserverList) {
+        vehicleTypeObserver = vehicleTypeObserverList;
+    }
+
+    public static void setVehicleTypeObserver(Vehicle vehicle) {
+        vehicleTypeObserver.set(0, vehicle);
+    }
+    public static void addToVehicleTypeObserver(Vehicle vehicle){
+        vehicleTypeObserver.add(vehicle);
+    }
     
+
+    public static ObservableList<Service> getServiceObserver() {
+        return serviceObserver;
+    }
+
+    public static void setServiceObserver(ObservableList<Service> serviceObserverList) {
+        serviceObserver = serviceObserverList;
+    }
+
+    public static void setServiceObserver(Service service) {
+        serviceObserver.set(0, service);
+    }
+
+    public static void addToServiceObserver(Service service){
+        serviceObserver.add(service);
+    }
+
+    public static void removeFromServiceObserver(Service service){
+        serviceObserver.remove(service);
+    }
+
+
+    public static LinkedHashMap<Service, ServiceSelectionServiceController> getServiceSelectionMap(){
+        return serviceSelectionMap;
+    }
+
+    public static Set<Service> getServicesFromServiceSelectionMap(){
+        return serviceSelectionMap.keySet();
+    }
+
+    public static Service getServiceByNameAndGroup(String serviceName, ServiceGroup serviceGroup){
+        Iterator<Service> iterator = getServicesFromServiceSelectionMap().iterator();
+        while(iterator.hasNext()){
+            Service currentService = iterator.next();
+            if(currentService.getServiceName().equals(serviceName) && currentService.getServiceGroup().equals(serviceGroup)){
+                return currentService;
+            }
+        }
+        return null;
+    }
+
+    public static Service getServiceByControllerFromServiceSelectionMap(ServiceSelectionServiceController controller){
+        Iterator<Service> iterator = getServicesFromServiceSelectionMap().iterator();
+        while(iterator.hasNext()){
+            Service currentService = iterator.next();
+            ServiceSelectionServiceController currentController = getServiceControllerFromServiceSelectionMap(currentService);
+            if(currentController == controller){
+                return currentService;
+            }
+        }
+        return null;
+    }
+
+    public static ServiceSelectionServiceController getServiceControllerFromServiceSelectionMap(Service service){
+        return serviceSelectionMap.get(service);
+    }
+
+    public static void addServiceToServiceSelectionMap(Service service, ServiceSelectionServiceController controller){
+        serviceSelectionMap.put(service, controller);
+    }
+
+
+    public static LinkedHashMap<Service, SelectedServiceController> getSelectedServiceMap(){
+        return selectedServiceMap;
+    }
+
+    public static Set<Service> getServicesFromSelectedServiceMap(){
+        return selectedServiceMap.keySet();
+    }
+
+    public static Service getServiceByControllerFromSelectedServiceMap(SelectedServiceController controller){
+        Iterator<Service> iterator = getServicesFromSelectedServiceMap().iterator();
+        while(iterator.hasNext()){
+            Service currentService = iterator.next();
+            SelectedServiceController currentController = getServiceControllerFromSelectedServiceMap(currentService);
+            if(currentController == controller){
+                return currentService;
+            }
+        }
+        return null;
+    }
+
+    public static SelectedServiceController getServiceControllerFromSelectedServiceMap(Service service){
+        return selectedServiceMap.get(service);
+    }
+
+    public static void addServiceToSelectedServiceMap(Service service, SelectedServiceController controller){
+        selectedServiceMap.put(service, controller);
+    }
+
+    public static void clearData() {
+        serviceObserver.clear();
+        vehicleTypeObserver.set(0, (Vehicle)null);
+        currentOrder.clearServices();
+        currentOrder.setRegistrationNumber("");
+        currentOrder.setVehicleType("");
+    }
+
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -122,10 +277,10 @@ public class Client extends Application {
                 vehicleTypeController.addToVehicleButtonHolder(button);
 
                 // Add Vehicle into Controllers Vehicle Set
-                vehicleTypeController.addVehicle(currentVehicle, vehicleTypeButtonController);
+                Client.addVehicleToVehicleMap(currentVehicle, vehicleTypeButtonController);
                 
                 if(Client.getCurrentOrder().getVehicleType().equals(currentVehicle.getVehicleName())) {
-                    vehicleTypeController.setVehicleTypeObserver(currentVehicle);
+                    Client.setVehicleTypeObserver(currentVehicle);
                     // vehicleTypeButtonController.select();
                 }
             }
@@ -185,7 +340,7 @@ public class Client extends Application {
 
                     
                     // Add service with its controller to serviceMap
-                    ServiceSelectionController.addService(currentService, currentServiceController);
+                    Client.addServiceToServiceSelectionMap(currentService, currentServiceController);
                     System.out.println("In serviceMap: " + currentService);
                 }
 
@@ -195,14 +350,12 @@ public class Client extends Application {
             }
 
             // Reselect all already selected services 
-            Iterator<Service> serviceIterator = ServiceSelectionController.getServices().iterator();
+
+            Iterator<Service> serviceIterator = Client.getServiceObserver().iterator();
             while(serviceIterator.hasNext()){
                 Service currentService = serviceIterator.next();
-                if(Client.getCurrentOrder().containsService(currentService)){
-                    ServiceSelectionController.getServiceController(currentService).reselect();
-                }
+                Client.getServiceControllerFromServiceSelectionMap(currentService).coloringButton(true);
             }
-
             System.out.println("FlowPanes children: " + serviceSelectionController.getServiceGroupHolder().getChildren().size());
             scene.setRoot(root);
         }
@@ -218,52 +371,48 @@ public class Client extends Application {
             Parent root = selectedServiceListLoader.load();
             SelectedServiceListController selectedServiceListController = selectedServiceListLoader.getController();
 
-            // For every selected service
-            Iterator<Service> serviceIterator = Client.getCurrentOrder().getServices().iterator();
-            while(serviceIterator.hasNext()){
-
-                // Get selected Service
-                Service currentService = serviceIterator.next();
-
-                // Get selectedServiceFrame FXML
-                FXMLLoader selectedServiceLoader = new FXMLLoader(Client.class.getResource("selectedservice_frame.fxml")); 
-                HBox selectedServiceButton = selectedServiceLoader.load();
-                SelectedServiceController selectedServiceController = selectedServiceLoader.getController();
-
-                // Set up selectedServiceFrame FXML
-                selectedServiceController.setServiceName(currentService.getServiceName());
-                selectedServiceController.setServicePrice(currentService.getServicePrice() + " €");
-
-                String iconName = currentService.getServiceGroup().getGroupIcon().strip();
-                if(!iconName.equals("")){
-                    selectedServiceController.setGroupIcon(Client.class.getResource("data/" + iconName).toString());
-                }
-                
-                // Add selectedServiceFrame FXML to SelectedServiceList FXML
-                selectedServiceListController.addToServiceHolder(selectedServiceButton);
-                selectedServiceListController.setTotalCost("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost()) + " €");
-            }
-
+            Client.generateServiceHolder(selectedServiceListController);
+            
             scene.setRoot(root);
         }
         catch(IOException e) {
             System.out.println("ERROR: Selected Service Page could not be loaded.");
         }
     }
+    
+    public static void generateServiceHolder(SelectedServiceListController selectedServiceListController) throws IOException{
+        // For every selected service
+        Iterator<Service> serviceIterator = Client.getCurrentOrder().getServices().iterator();
+        while(serviceIterator.hasNext()){
+
+            // Get selected Service
+            Service currentService = serviceIterator.next();
+
+            // Get selectedServiceFrame FXML
+            FXMLLoader selectedServiceLoader = new FXMLLoader(Client.class.getResource("selectedservice_frame.fxml")); 
+            HBox selectedServiceButton = selectedServiceLoader.load();
+            SelectedServiceController selectedServiceController = selectedServiceLoader.getController();
+
+            // Set up selectedServiceFrame FXML
+            selectedServiceController.setServiceName(currentService.getServiceName());
+            selectedServiceController.setGroupName(currentService.getServiceGroup().getGroupName());
+            selectedServiceController.setServicePrice(currentService.getServicePrice() + " €");
+
+            String iconName = currentService.getServiceGroup().getGroupIcon().strip();
+            if(!iconName.equals("")){
+                selectedServiceController.setGroupIcon(Client.class.getResource("data/" + iconName).toString());
+            }
+            
+            // Add selectedServiceFrame FXML to SelectedServiceList FXML
+            selectedServiceListController.addToServiceHolder(selectedServiceButton);
+            selectedServiceListController.setTotalCost("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost()) + " €");
+
+            Client.addServiceToSelectedServiceMap(currentService, selectedServiceController);
+        }
+    }
 
     public static void switchToThankYouPage() {
         try {
-            // Connecting to Server
-
-            // Sending Order
-            Client.getCurrentOrder().setArrivalDateTime(LocalDateTime.now());
-            System.out.println(Client.getCurrentOrder().toCSV());
-
-            // Reseting order
-            Client.setCurrentOrder(new Order());
-            System.out.println("Client order reset!");
-
-
             // Get ThankYouSelection FXML
             FXMLLoader thankYouLoader = new FXMLLoader(Client.class.getResource("ThankYou.fxml"));
             Parent root = thankYouLoader.load();
@@ -274,6 +423,19 @@ public class Client extends Application {
         catch(IOException e) {
             System.out.println("ERROR: Selected Service Page could not be loaded.");
         }
+    }
+
+    public static void sendData() {
+        // Connecting to Server
+
+        // Sending Order
+        Client.getCurrentOrder().setArrivalDateTime(LocalDateTime.now());
+        System.out.println(Client.getCurrentOrder().toCSV());
+
+        // Reseting order
+        Client.setCurrentOrder(new Order());
+        Client.clearData();
+        System.out.println("Client order reset!");
     }
 
     

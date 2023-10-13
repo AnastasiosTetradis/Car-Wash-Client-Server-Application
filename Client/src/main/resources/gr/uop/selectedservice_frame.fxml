@@ -31,7 +31,7 @@
             </HBox>
             <VBox alignment="CENTER_LEFT" prefHeight="73.0" prefWidth="190.0">
                <children>
-                  <Label fx:id="groupName" styleClass="vehicleoption" text="Exterior Wash">
+                  <Label fx:id="serviceName" styleClass="vehicleoption" text="Exterior Wash">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -49,7 +49,7 @@
                         </LinearGradient>
                      </textFill>
                   </Label>
-                  <Label fx:id="serviceΝame" layoutX="10.0" layoutY="10.0" text="In &amp; Out Standard">
+                  <Label fx:id="groupName" layoutX="10.0" layoutY="10.0" text="In &amp; Out Standard">
                      <textFill>
                         <LinearGradient endX="1.0" endY="1.0">
                            <stops>
@@ -99,7 +99,7 @@
             </HBox>
          </children>
       </FlowPane>
-      <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" prefHeight="73.0" prefWidth="155.0" style="-fx-background-color: linear-gradient(to right, #EAA3A380, #FF482F80); -fx-background-radius: 0 11 11 0;">
+      <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#removeService" prefHeight="73.0" prefWidth="155.0" style="-fx-background-color: linear-gradient(to right, #EAA3A380, #FF482F80); -fx-background-radius: 0 11 11 0;">
          <graphic>
             <ImageView fitHeight="25.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                <image>

@@ -33,7 +33,7 @@ public class SelectedServiceController {
     // }
 
     public void setServiceName(String serviceName) {
-        this.getGroupName().setText(serviceName);
+        this.serviceName.setText(serviceName);
     }
 
     public Label getServicePrice() {
@@ -81,5 +81,14 @@ public class SelectedServiceController {
 
     public void setRemoveButton(String removeButton) {
         this.removeButton.setText(removeButton);
+    }
+
+    public void removeService() {
+        // Get deselected service
+        Service deselectedService =  Client.getServiceByControllerFromSelectedServiceMap(this);
+
+        // Remove service
+        System.out.println("Removing " + this.serviceName.getText());
+        Client.removeFromServiceObserver(deselectedService);
     }
 }

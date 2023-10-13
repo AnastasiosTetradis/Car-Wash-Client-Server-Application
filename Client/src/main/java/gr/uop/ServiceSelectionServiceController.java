@@ -1,5 +1,6 @@
 package gr.uop;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -52,59 +53,61 @@ public class ServiceSelectionServiceController {
 
     public void select(){
         // Get selected service
-        Service selectedService =  ServiceSelectionController.getServiceByController(this);
+        Service selectedService =  Client.getServiceByControllerFromServiceSelectionMap(this);
         
         // First check if service is already selected, if so then deselect
-        if(Client.getCurrentOrder().containsService(selectedService)){
+        if(Client.getServiceObserver().contains(selectedService)){
             this.deselect();
             return;
         }
 
 
         // Deselect all other unmatchable services first
-        Iterator<Service> serviceIterator = ServiceSelectionController.getServices().iterator();
+        ArrayList<Service> serviceMemory = new ArrayList<>();
+        serviceMemory.addAll(Client.getServiceObserver());
+        Iterator<Service> serviceIterator = serviceMemory.iterator();
         while(serviceIterator.hasNext()){
             Service currentService = serviceIterator.next();
             System.out.println("#########################");
             System.out.println("currentServiceValues: " + currentService.getServiceValues());
             System.out.println("selectedServiceValues: " + selectedService.getServiceValues());
             if(currentService.containsValues(selectedService.getServiceValues())){
-                ServiceSelectionController.getServiceController(currentService).deselect();
+                Client.getServiceControllerFromServiceSelectionMap(currentService).deselect();
             }
-            ServiceSelectionController.getServiceController(currentService);
+            Client.getServiceControllerFromServiceSelectionMap(currentService);
         }
 
-
-        System.out.println("Selecting " + this.serviceName.getText());
-        Client.getCurrentOrder().addService(selectedService);
-        ServiceSelectionController.addToServiceObserver(selectedService);
-
+        // Selecting Service
+        Client.addToServiceObserver(selectedService);
+        
         // Style code for selecting
-        this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius:  0 0 11 11;-fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F)");      
-        this.selectButton.setText("Selected");
+        coloringButton(true);
     }
 
     public void deselect(){
         // Get deselected service
-        Service deselectedService =  ServiceSelectionController.getServiceByController(this);
+        Service deselectedService =  Client.getServiceByControllerFromServiceSelectionMap(this);
 
         // Deselect service
         System.out.println("Deselecting " + this.serviceName.getText());
-        Client.getCurrentOrder().removeService(deselectedService);
-        ServiceSelectionController.removeFromServiceObserver(deselectedService);
+        Client.removeFromServiceObserver(deselectedService);
 
 
         // Style code for deselecting
-        this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);-fx-background-radius:  0 0 11 11;-fx-text-fill: white");      
-        this.selectButton.setText("Select");
+        coloringButton(false);
     }
 
-    public void reselect(){
-        // Deselect service
-        System.out.println("Reselecting " + this.serviceName.getText());
-
-        // Style code for selecting
-        this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius:  0 0 11 11;-fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F)");      
-        this.selectButton.setText("Selected");
+    // Style code for selecting
+    public void coloringButton(boolean activatingButton){
+        if(activatingButton) {
+            System.out.println("Coloring " + this.serviceName.getText());
+            this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius:  0 0 11 11;-fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F)");      
+            this.selectButton.setText("Selected");
+        }
+        else {
+            System.out.println("Decoloring " + this.serviceName.getText());
+            this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);-fx-background-radius:  0 0 11 11;-fx-text-fill: white");      
+            this.selectButton.setText("Select");
+        }
     }
 }
