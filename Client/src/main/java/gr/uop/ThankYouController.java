@@ -26,13 +26,6 @@ public class ThankYouController {
 
     @FXML
     public void switchToNextScene(ActionEvent event) throws IOException{
-        // Get RegistrationNumber FXML
-        FXMLLoader thankYouLoader = new FXMLLoader(getClass().getResource("RegistrationNumber.fxml"));
-        Parent root = thankYouLoader.load();
-
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        Client.switchToRegistrationPage();
     }
 }

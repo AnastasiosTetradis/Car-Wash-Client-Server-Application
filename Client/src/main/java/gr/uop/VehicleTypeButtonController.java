@@ -57,27 +57,28 @@ public class VehicleTypeButtonController {
 
     @FXML
     public void select(){
-        if(this.vehicleName.getText().equals(Client.getCurrentOrder().getVehicleType())){
-            this.deselect();
-            return;
+        Vehicle selectedVehicle = VehicleTypeController.getVehicleByController(this);
+        Vehicle alreadySelectedVehicle = VehicleTypeController.getVehicleTypeObserver().get(0);
+        if(alreadySelectedVehicle != null) {
+            if(selectedVehicle.getVehicleName().equals(alreadySelectedVehicle.getVehicleName())){
+                this.deselect();
+                return;
+            }
         }
 
 
         // Deselect all buttons first
         Iterator<Vehicle> iterator = VehicleTypeController.getVehicleMap().keySet().iterator();
         while(iterator.hasNext()){
-            VehicleTypeButtonController currentController = VehicleTypeController.getController(iterator.next());
+            VehicleTypeButtonController currentController = VehicleTypeController.getVehicleController(iterator.next());
             currentController.deselect();
         }
 
         // Selecting desired Vehicle button
         System.out.println("Selecting " + this.vehicleName.getText());
-
-        Client.getCurrentOrder().setVehicleType(this.vehicleName.getText());
-        VehicleTypeController.setVehicleTypeObserver(this.vehicleName.getText());
+        VehicleTypeController.setVehicleTypeObserver(selectedVehicle);
 
         System.out.println("Order's vehicle: " + Client.getCurrentOrder().getVehicleType());
-        System.out.println("Observer's vehicle: " + VehicleTypeController.getVehicleTypeObserver().get(0));
         
         // Style code for selecting
         this.selectButton.setStyle("-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius: 11");      
@@ -85,8 +86,7 @@ public class VehicleTypeButtonController {
 
     public void deselect(){
         System.out.println("Deselecting " + this.vehicleName.getText());
-        Client.getCurrentOrder().setVehicleType("");
-        VehicleTypeController.setVehicleTypeObserver("");
+        VehicleTypeController.setVehicleTypeObserver((Vehicle)null);
 
         // Style code for deselecting
         this.selectButton.setStyle("-fx-background-color: #ffffff;-fx-background-radius: 11");      

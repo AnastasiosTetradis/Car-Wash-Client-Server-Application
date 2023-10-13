@@ -25,6 +25,29 @@ public class RegistrationNumberController {
     @FXML
     private Button key_Enter;
 
+    @FXML
+    public void initialize(){
+        registrationField.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                String input = registrationField.getText().strip();
+                if(input.length() < 2){
+                    continueButton.setDisable(true);
+                    key_Enter.setDisable(true);
+                }
+                else{
+                    continueButton.setDisable(false);
+                    key_Enter.setDisable(false);
+                }
+                System.out.println("reg number changed");
+            }
+        });
+
+        if(!Client.getCurrentOrder().getRegistrationNumber().equals("")) {
+            registrationField.setText(Client.getCurrentOrder().getRegistrationNumber());
+        }
+    }
+
     public TextField getRegistrationField() {
         return registrationField;
     }
@@ -45,7 +68,6 @@ public class RegistrationNumberController {
     public void setContinueButton(Button continueButton) {
         this.continueButton = continueButton;
     }
-
     
     public Button getKey_Enter() {
         return key_Enter;
@@ -53,25 +75,6 @@ public class RegistrationNumberController {
 
     public void setKey_Enter(Button key_Enter) {
         this.key_Enter = key_Enter;
-    }
-
-    @FXML
-    public void initialize(){
-        registrationField.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                String input = registrationField.getText().strip();
-                if(input.length() < 2){
-                    continueButton.setDisable(true);
-                    key_Enter.setDisable(true);
-                }
-                else{
-                    continueButton.setDisable(false);
-                    key_Enter.setDisable(false);
-                }
-                System.out.println("reg number changed");
-            }
-        });
     }
     
     @FXML
@@ -100,46 +103,7 @@ public class RegistrationNumberController {
 
     @FXML
     public void switchToNextScene(ActionEvent event) throws IOException{
-        // Add registration number to order
-        Client.getCurrentOrder().setRegistrationNumber(this.registrationField.getText().strip());
-        System.out.println("DEBUG: text is \"" + Client.getCurrentOrder().getRegistrationNumber() + "\"");
-        
-        // Get VehicleTypeSelection FXML
-        FXMLLoader vehicleTypeLoader = new FXMLLoader(getClass().getResource("VehicleType.fxml"));
-        Parent root = vehicleTypeLoader.load();
-        VehicleTypeController vehicleTypeController = vehicleTypeLoader.getController();
-
-        // For every available vehicle
-        Iterator<Vehicle> vehicleIterator = Client.getDb().getAllVehicles().iterator();
-        while(vehicleIterator.hasNext()){
-
-            // Get vehicle
-            Vehicle currentVehicle = (Vehicle) vehicleIterator.next();
-
-            // Get VehicleTypeButton FXML
-            FXMLLoader vehicleTypeButtonLoader = new FXMLLoader(getClass().getResource("vehicletype_button.fxml")); 
-            Button button = vehicleTypeButtonLoader.load();
-            VehicleTypeButtonController vehicleTypeButtonController = vehicleTypeButtonLoader.getController();
-
-            // Set Up VehicleTypeButton FXML
-            vehicleTypeButtonController.setVehicleName(currentVehicle.getVehicleName());
-
-            String iconName = currentVehicle.getVehicleIcon().strip();
-            if(!iconName.equals("")){
-                vehicleTypeButtonController.setVehicleIcon(getClass().getResource("data/" + iconName).toString());
-            }
-            
-            // Add VehicleTypeButton FXML to VehicleTypeSelection FXML
-            vehicleTypeController.addToVehicleButtonHolder(button);
-
-            // Add Vehicle into Controllers Vehicle Set
-            vehicleTypeController.addVehicle(currentVehicle, vehicleTypeButtonController);
-        }
-
-        // root = vehicleTypeLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        Client.getCurrentOrder().setRegistrationNumber(registrationField.getText().strip());
+        Client.switchToVehicleTypePage();
     }
 }

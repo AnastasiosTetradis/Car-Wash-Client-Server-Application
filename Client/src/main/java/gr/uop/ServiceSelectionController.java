@@ -25,7 +25,30 @@ import javafx.stage.Stage;
 public class ServiceSelectionController {
 
     private static ObservableList<Service> serviceObserver = FXCollections.observableArrayList();
+
     private static LinkedHashMap<Service, ServiceSelectionServiceController> serviceMap = new LinkedHashMap<>();
+    
+    @FXML
+    private FlowPane serviceGroupHolder;
+
+    @FXML
+    private Label totalCostLabel;
+
+    @FXML
+    private Button continueButton;
+    
+    @FXML
+    public void initialize(){
+        serviceObserver.addListener((ListChangeListener.Change<? extends Service> c) -> {
+            updateTotalCostLabel();
+            if(serviceObserver.size() >= 1){
+                continueButton.setDisable(false);
+            }
+            else{
+                continueButton.setDisable(true);
+            }
+        });
+    }
 
     public static ObservableList<Service> getServiceObserver() {
         return serviceObserver;
@@ -85,15 +108,6 @@ public class ServiceSelectionController {
     public static void addService(Service service, ServiceSelectionServiceController controller){
         serviceMap.put(service, controller);
     }
-
-    @FXML
-    private FlowPane serviceGroupHolder;
-
-    @FXML
-    private Label totalCostLabel;
-
-    @FXML
-    private Button continueButton;
     
     public FlowPane getServiceGroupHolder() {
         return serviceGroupHolder;
@@ -138,102 +152,15 @@ public class ServiceSelectionController {
     }
 
     @FXML
-    public void initialize(){
-        serviceObserver.addListener((ListChangeListener.Change<? extends Service> c) -> {
-            updateTotalCostLabel();
-            if(serviceObserver.size() >= 1){
-                continueButton.setDisable(false);
-            }
-            else{
-                continueButton.setDisable(true);
-            }
-        });
-    }
-
-    @FXML
     public void switchToPreviousScene(ActionEvent event) throws IOException{
-        // Get VehicleTypeSelection FXML
-        FXMLLoader vehicleTypeLoader = new FXMLLoader(getClass().getResource("VehicleType.fxml"));
-        Parent root = vehicleTypeLoader.load();
-        VehicleTypeController vehicleTypeController = vehicleTypeLoader.getController();
-        vehicleTypeController.getVehicleButtonHolder();
-
-        // For every available vehicle
-        Iterator vehicleIterator = Client.getDb().getAllVehicles().iterator();
-        while(vehicleIterator.hasNext()){
-
-            // Get vehicle
-            Vehicle currentVehicle = (Vehicle) vehicleIterator.next();
-
-            // Get VehicleTypeButton FXML
-            FXMLLoader vehicleTypeButtonLoader = new FXMLLoader(getClass().getResource("vehicletype_button.fxml")); 
-            Button button = vehicleTypeButtonLoader.load();
-            VehicleTypeButtonController vehicleTypeButtonController = vehicleTypeButtonLoader.getController();
-
-            // Set Up VehicleTypeButton FXML
-            vehicleTypeButtonController.setVehicleName(currentVehicle.getVehicleName());
-
-            String iconName = currentVehicle.getVehicleIcon().strip();
-            if(!iconName.equals("")){
-                vehicleTypeButtonController.setVehicleIcon(getClass().getResource("data/" + iconName).toString());
-            }
-
-            // Select based on selection
-            if(vehicleTypeButtonController.getVehicleName().getText().equals(Client.getCurrentOrder().getVehicleType())){
-                vehicleTypeButtonController.getSelectButton().setStyle("-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius: 11");      
-            }
-            
-            // Add VehicleTypeButton FXML to VehicleTypeSelection FXML
-            vehicleTypeController.addToVehicleButtonHolder(button);
-
-            // Add Vehicle into Controllers Vehicle Set
-            vehicleTypeController.addVehicle(currentVehicle, vehicleTypeButtonController);
-        }
-
-        // root = vehicleTypeLoader.load();
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        System.out.println("Going to Previous Page");
+        Client.switchToVehicleTypePage();
+        System.out.println("We are at Previous Page");
     }
 
     @FXML
     public void switchToNextScene(ActionEvent event) throws IOException{
-        // Get SelectedServiceList FXML
-        FXMLLoader selectedServiceListLoader = new FXMLLoader(getClass().getResource("SelectedServiceList.fxml"));
-        Parent root = selectedServiceListLoader.load();
-        SelectedServiceListController selectedServiceListController = selectedServiceListLoader.getController();
-
-        // For every selected service
-        Iterator<Service> serviceIterator = Client.getCurrentOrder().getServices().iterator();
-        while(serviceIterator.hasNext()){
-
-            // Get selected Service
-            Service currentService = serviceIterator.next();
-
-            // Get selectedServiceFrame FXML
-            FXMLLoader selectedServiceLoader = new FXMLLoader(getClass().getResource("selectedservice_frame.fxml")); 
-            HBox selectedServiceButton = selectedServiceLoader.load();
-            SelectedServiceController selectedServiceController = selectedServiceLoader.getController();
-
-            // Set up selectedServiceFrame FXML
-            selectedServiceController.setServiceName(currentService.getServiceName());
-            selectedServiceController.setServicePrice(currentService.getServicePrice() + " €");
-
-            String iconName = currentService.getServiceGroup().getGroupIcon().strip();
-            if(!iconName.equals("")){
-                selectedServiceController.setGroupIcon(getClass().getResource("data/" + iconName).toString());
-            }
-            
-            // Add selectedServiceFrame FXML to SelectedServiceList FXML
-            selectedServiceListController.addToServiceHolder(selectedServiceButton);
-            selectedServiceListController.setTotalCost("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost()) + " €");
-        }
-
-        Scene scene = new Scene(root);
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        Client.switchToSelectedServiceListPage();
     }
     
 }
