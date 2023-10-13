@@ -5,6 +5,11 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +24,28 @@ import javafx.stage.Stage;
 
 public class ServiceSelectionController {
 
+    private static ObservableList<Service> serviceObserver = FXCollections.observableArrayList();
     private static LinkedHashMap<Service, ServiceSelectionServiceController> serviceMap = new LinkedHashMap<>();
+
+    public static ObservableList<Service> getServiceObserver() {
+        return serviceObserver;
+    }
+
+    public static void setServiceObserver(ObservableList<Service> serviceObserverList) {
+        serviceObserver = serviceObserverList;
+    }
+
+    public static void setServiceObserver(Service service) {
+        serviceObserver.set(0, service);
+    }
+
+    public static void addToServiceObserver(Service service){
+        serviceObserver.add(service);
+    }
+
+    public static void removeFromServiceObserver(Service service){
+        serviceObserver.remove(service);
+    }
 
     public static LinkedHashMap<Service, ServiceSelectionServiceController> getServiceMap(){
         return serviceMap;
@@ -65,6 +91,9 @@ public class ServiceSelectionController {
 
     @FXML
     private Label totalCostLabel;
+
+    @FXML
+    private Button continueButton;
     
     public FlowPane getServiceGroupHolder() {
         return serviceGroupHolder;
@@ -96,6 +125,31 @@ public class ServiceSelectionController {
         setTotalCostLabel("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost())  + " €");
     }
 
+    public Button getContinueButton() {
+        return continueButton;
+    }
+
+    // public void setContinueButton(Button continueButton) {
+    //     this.continueButton = continueButton;
+    // }
+
+    public void setContinueButton(String button){
+        continueButton.setText(button);
+    }
+
+    @FXML
+    public void initialize(){
+        serviceObserver.addListener((ListChangeListener.Change<? extends Service> c) -> {
+            updateTotalCostLabel();
+            if(serviceObserver.size() >= 1){
+                continueButton.setDisable(false);
+            }
+            else{
+                continueButton.setDisable(true);
+            }
+        });
+    }
+
     @FXML
     public void switchToPreviousScene(ActionEvent event) throws IOException{
         // Get VehicleTypeSelection FXML
@@ -122,6 +176,11 @@ public class ServiceSelectionController {
             String iconName = currentVehicle.getVehicleIcon().strip();
             if(!iconName.equals("")){
                 vehicleTypeButtonController.setVehicleIcon(getClass().getResource("data/" + iconName).toString());
+            }
+
+            // Select based on selection
+            if(vehicleTypeButtonController.getVehicleName().getText().equals(Client.getCurrentOrder().getVehicleType())){
+                vehicleTypeButtonController.getSelectButton().setStyle("-fx-background-color: linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius: 11");      
             }
             
             // Add VehicleTypeButton FXML to VehicleTypeSelection FXML

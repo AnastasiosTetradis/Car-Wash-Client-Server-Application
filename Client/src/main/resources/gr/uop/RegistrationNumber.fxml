@@ -649,7 +649,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="key_Enter" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="153.0" styleClass="keyboardgreenbutton" text="Enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+                  <Button fx:id="key_Enter" disable="true" layoutX="412.0" layoutY="10.0" mnemonicParsing="false" onAction="#pressButton" prefHeight="57.0" prefWidth="153.0" styleClass="keyboardgreenbutton" text="Enter" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                      <font>
                         <Font name="Century Gothic Bold" size="14.0" />
                      </font>

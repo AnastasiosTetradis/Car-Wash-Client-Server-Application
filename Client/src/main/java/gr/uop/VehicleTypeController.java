@@ -4,20 +4,40 @@ import java.io.IOException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Set;
-
+import javafx.collections.FXCollections;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class VehicleTypeController {
-
+    
     private static LinkedHashMap<Vehicle, VehicleTypeButtonController> vehicleMap = new LinkedHashMap<>();
+    private static ObservableList<String> vehicleTypeObserver = FXCollections.observableArrayList("");
+
+    public static ObservableList<String> getVehicleTypeObserver() {
+        return vehicleTypeObserver;
+    }
+
+    public static void setVehicleTypeObserver(ObservableList<String> vehicleTypeObserverList) {
+        vehicleTypeObserver = vehicleTypeObserverList;
+    }
+
+    public static void setVehicleTypeObserver(String vehicleType) {
+        vehicleTypeObserver.set(0, vehicleType);
+    }
+
+    public static void addToVehicleTypeObserver(String vehicleType){
+        vehicleTypeObserver.add(vehicleType);
+    }
 
     public static LinkedHashMap<Vehicle, VehicleTypeButtonController> getVehicleMap() {
         return vehicleMap;
@@ -42,6 +62,9 @@ public class VehicleTypeController {
     @FXML
     private FlowPane vehicleButtonHolder;
 
+    @FXML
+    private Button continueButton;
+
     public FlowPane getVehicleButtonHolder() {
         return vehicleButtonHolder;
     }
@@ -53,6 +76,33 @@ public class VehicleTypeController {
 
     public void addToVehicleButtonHolder(Node vehicleButtonHolder) {
         this.vehicleButtonHolder.getChildren().add(vehicleButtonHolder);
+    }
+
+    public Button getContinueButton() {
+        return continueButton;
+    }
+
+    // public void setContinueButton(Button continueButton) {
+    //     this.continueButton = continueButton;
+    // }
+
+    public void setContinueButton(String button){
+        continueButton.setText(button);
+    }
+
+    @FXML
+    public void initialize(){
+        vehicleTypeObserver.addListener((ListChangeListener.Change<? extends String> c) -> {
+            if(vehicleTypeObserver.get(0).equals("")){
+
+                System.out.println("Observer initialize value" + vehicleTypeObserver.get(0));
+                continueButton.setDisable(true);
+            }
+            else{
+                System.out.println("Observer initialize value" + vehicleTypeObserver.get(0));
+                continueButton.setDisable(false);
+            }
+        });
     }
 
     @FXML

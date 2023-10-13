@@ -157,7 +157,7 @@
                               <Font size="13.0" />
                            </font>
                         </Label>
-                        <Button fx:id="continueΒutton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="39.0" prefWidth="148.0">
+                        <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" disable="true" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="39.0" prefWidth="148.0">
                            <graphic>
                               <HBox prefHeight="61.0" prefWidth="133.0">
                                  <children>

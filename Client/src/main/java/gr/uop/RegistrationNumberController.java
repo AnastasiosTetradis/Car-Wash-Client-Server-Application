@@ -2,11 +2,9 @@ package gr.uop;
 
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.Iterator;
-
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -23,6 +21,9 @@ public class RegistrationNumberController {
 
     @FXML
     private Button continueButton;
+
+    @FXML
+    private Button key_Enter;
 
     public TextField getRegistrationField() {
         return registrationField;
@@ -45,6 +46,15 @@ public class RegistrationNumberController {
         this.continueButton = continueButton;
     }
 
+    
+    public Button getKey_Enter() {
+        return key_Enter;
+    }
+
+    public void setKey_Enter(Button key_Enter) {
+        this.key_Enter = key_Enter;
+    }
+
     @FXML
     public void initialize(){
         registrationField.textProperty().addListener(new ChangeListener<String>() {
@@ -53,15 +63,17 @@ public class RegistrationNumberController {
                 String input = registrationField.getText().strip();
                 if(input.length() < 2){
                     continueButton.setDisable(true);
+                    key_Enter.setDisable(true);
                 }
                 else{
                     continueButton.setDisable(false);
+                    key_Enter.setDisable(false);
                 }
                 System.out.println("reg number changed");
             }
         });
     }
-
+    
     @FXML
     public void pressButton(ActionEvent event) throws IOException{
         Button pressedButton = (Button) event.getSource();

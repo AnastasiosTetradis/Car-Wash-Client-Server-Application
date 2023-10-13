@@ -77,6 +77,7 @@ public class ServiceSelectionServiceController {
 
         System.out.println("Selecting " + this.serviceName.getText());
         Client.getCurrentOrder().addService(selectedService);
+        ServiceSelectionController.addToServiceObserver(selectedService);
 
         // Style code for selecting
         this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c26, #4ACF9F26);-fx-background-radius:  0 0 11 11;-fx-text-fill: linear-gradient(to right, #47bb7c, #4ACF9F)");      
@@ -90,6 +91,8 @@ public class ServiceSelectionServiceController {
         // Deselect service
         System.out.println("Deselecting " + this.serviceName.getText());
         Client.getCurrentOrder().removeService(deselectedService);
+        ServiceSelectionController.removeFromServiceObserver(deselectedService);
+
 
         // Style code for deselecting
         this.selectButton.setStyle("-fx-background-color:  linear-gradient(to right, #47bb7c, #4ACF9F);-fx-background-radius:  0 0 11 11;-fx-text-fill: white");      
