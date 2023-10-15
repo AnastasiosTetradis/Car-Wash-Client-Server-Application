@@ -20,8 +20,16 @@
     -fx-font-size: 18;
 }
 
+.bigger {
+    -fx-font-size: 20;
+}
+
 .vehicleoption {
     -fx-font-size: 17;
+}
+
+.vehicleservice {
+    -fx-font-size: 15;
 }
 
 .screenchange_button {

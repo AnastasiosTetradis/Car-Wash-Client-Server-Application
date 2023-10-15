@@ -52,10 +52,10 @@
                      <children>
                         <TableView fx:id="orderHolder" onKeyPressed="#proceedOrderShortcut" prefHeight="658.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
                           <columns>
-                            <TableColumn fx:id="registrationNumberCol" prefWidth="157.99996852874756" text="Registration Number" />
-                            <TableColumn fx:id="vehicleCol" prefWidth="163.99996948242188" text="Vehicle" />
-                              <TableColumn fx:id="costCol" prefWidth="101.3333740234375" text="Cost" />
-                              <TableColumn fx:id="entryTimeCol" prefWidth="161.9998779296875" text="Entry Time" />
+                            <TableColumn fx:id="registrationNumberCol" prefWidth="157.99996852874756" style="-fx-alignment: CENTER;" text="Registration Number" />
+                            <TableColumn fx:id="vehicleCol" prefWidth="163.99996948242188" style="-fx-alignment: CENTER;" text="Vehicle" />
+                              <TableColumn fx:id="costCol" prefWidth="101.3333740234375" style="-fx-alignment: CENTER;" text="Cost" />
+                              <TableColumn fx:id="entryTimeCol" prefWidth="161.9998779296875" style="-fx-alignment: CENTER;" text="Entry Time" />
                           </columns>
                         </TableView>
                      </children>

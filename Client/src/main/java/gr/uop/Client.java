@@ -12,15 +12,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.URL;
-import java.net.UnknownHostException;
-import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -31,6 +26,9 @@ import java.util.Set;
  * JavaFX App
  */
 public class Client extends Application {
+    // Currency Symbol
+    private static String currencySymbol = "€";
+    // private static String currencySymbol = "$";
 
     private static Scene scene = new Scene(new Pane(), 1024, 768);
     private static ServiceDB db = new ServiceDB();
@@ -41,6 +39,14 @@ public class Client extends Application {
     private static ObservableList<Service> serviceObserver = FXCollections.observableArrayList();
     private static LinkedHashMap<Service, ServiceSelectionServiceController> serviceSelectionMap = new LinkedHashMap<>();
     private static LinkedHashMap<Service, SelectedServiceController> selectedServiceMap = new LinkedHashMap<>();
+
+    public static String getCurrencySymbol() {
+        return currencySymbol;
+    }
+
+    public static void setCurrencySymbol(String currencySymbol) {
+        Client.currencySymbol = currencySymbol;
+    }
 
 
     public static ServiceDB getDb() {
@@ -339,7 +345,7 @@ public class Client extends Application {
 
                     // Set up current service FXML
                     currentServiceController.setServiceName(currentService.getServiceName());
-                    currentServiceController.setServicePrice(currentService.getServicePrice() + " €");
+                    currentServiceController.setServicePrice(String.format("%.2f", currentService.getServicePrice()) + " " + currencySymbol);
                     
                     // Add service FXML to ServiceGroup FXML
                     serviceGroupController.addToServiceHolder(serviceVbox);
@@ -402,7 +408,7 @@ public class Client extends Application {
             // Set up selectedServiceFrame FXML
             selectedServiceController.setServiceName(currentService.getServiceName());
             selectedServiceController.setGroupName(currentService.getServiceGroup().getGroupName());
-            selectedServiceController.setServicePrice(currentService.getServicePrice() + " €");
+            selectedServiceController.setServicePrice(String.format("%.2f", currentService.getServicePrice()) + " " + currencySymbol);
 
             String iconName = currentService.getServiceGroup().getGroupIcon().strip();
             if(!iconName.equals("")){
@@ -411,7 +417,7 @@ public class Client extends Application {
             
             // Add selectedServiceFrame FXML to SelectedServiceList FXML
             selectedServiceListController.addToServiceHolder(selectedServiceButton);
-            selectedServiceListController.setTotalCost("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost()) + " €");
+            selectedServiceListController.setTotalCost("Total Cost: " + String.format("%.2f", Client.getCurrentOrder().getTotalCost()) + " " + currencySymbol);
 
             Client.addServiceToSelectedServiceMap(currentService, selectedServiceController);
         }
@@ -427,7 +433,21 @@ public class Client extends Application {
             scene.setRoot(root);
         }
         catch(IOException e) {
-            System.out.println("ERROR: Selected Service Page could not be loaded.");
+            System.out.println("ERROR: Thank You Page could not be loaded.");
+        }
+    }
+
+    public static void switchToOrderErrorPage() {
+        try {
+            // Get OrderErrorSelection FXML
+            FXMLLoader orderErrorLoader = new FXMLLoader(Client.class.getResource("OrderError.fxml"));
+            Parent root = orderErrorLoader.load();
+            // OrderErrorController orderErrorController = OrderErrorLoader.getController();
+
+            scene.setRoot(root);
+        }
+        catch(IOException e) {
+            System.out.println("ERROR: Order Error Page could not be loaded.");
         }
     }
 
@@ -452,20 +472,15 @@ public class Client extends Application {
 
             // Clear data and thank client
             Client.clearData();
+            System.out.println("Client order reset!");
             Client.switchToThankYouPage();
         }
         catch (IOException e) {
             System.out.println("IOException: " + e);
-
+            System.out.println("Current Order " + currentOrder.toCSV());
             // Warn client 
+            Client.switchToOrderErrorPage();
         }
-
-
-
-        // Reseting order
-        Client.setCurrentOrder(new Order());
-        Client.clearData();
-        System.out.println("Client order reset!");
     }
 
     

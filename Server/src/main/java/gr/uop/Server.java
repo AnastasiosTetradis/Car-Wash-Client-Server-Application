@@ -28,10 +28,21 @@ import java.util.Scanner;
  * JavaFX App
  */
 public class Server extends Application {
+    // Currency Symbol
+    private static String currencySymbol = "€";
+    // private static String currencySymbol = "$";
 
     private static Thread thread = null;
 
     private static OrderQueue orderQueue = new OrderQueue();
+
+    public static String getCurrencySymbol() {
+        return currencySymbol;
+    }
+
+    public static void setCurrencySymbol(String currencySymbol) {
+        Server.currencySymbol = currencySymbol;
+    }
 
     public static OrderQueue getOrderQueue() {
         return orderQueue;
@@ -48,6 +59,7 @@ public class Server extends Application {
     public static void setThread(Thread thread) {
         Server.thread = thread;
     }
+
 
     public static ObservableList<Order> readOrdersFromFile(){
         URL url = Server.class.getResource("data/profit_file.txt");

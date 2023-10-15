@@ -16,7 +16,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.ThankYouController">
+<BorderPane maxHeight="1080.0" maxWidth="1920.0" minHeight="768.0" minWidth="1024.0" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: linear-gradient(to right, #47BB7C26, #4ACF9F26);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gr.uop.OrderErrorController">
    <center>
       <BorderPane maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
@@ -30,12 +30,13 @@
                                  <children>
                                     <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                                        <image>
-                                          <Image url="@media/orderconfirmed.png" />
+                                          <Image url="@media/ordercancelled.png" />
                                        </image>
                                        <VBox.margin>
                                           <Insets top="50.0" />
-                                       </VBox.margin></ImageView>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="29.0" prefWidth="519.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Your order has been sent." wrapText="true">
+                                       </VBox.margin>
+                                    </ImageView>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="29.0" prefWidth="519.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Server Error: Something went wrong. Please try again." wrapText="true">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="21.0" />
                                        </font>
@@ -44,12 +45,12 @@
                                              <stops>
                                                 <Stop>
                                                    <color>
-                                                      <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                                      <Color red="1.0" green="0.2823529541492462" blue="0.18431372940540314" />
                                                    </color>
                                                 </Stop>
                                                 <Stop offset="1.0">
                                                    <color>
-                                                      <Color red="0.29019609093666077" green="0.8117647171020508" blue="0.6235294342041016" />
+                                                      <Color red="0.9100000262260437" green="0.6370000243186951" blue="0.6370000243186951" />
                                                    </color>
                                                 </Stop>
                                              </stops>
@@ -59,7 +60,7 @@
                                           <Insets top="30.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="315.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="519.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="Thank you!" wrapText="true">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" layoutX="10.0" layoutY="315.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="27.0" prefWidth="519.0" styleClass="overheadtitle" stylesheets="@stylesheets/font.css" text="We apologize for the inconvenience." wrapText="true">
                                        <font>
                                           <Font name="Segoe UI Semibold" size="21.0" />
                                        </font>
@@ -68,12 +69,12 @@
                                              <stops>
                                                 <Stop>
                                                    <color>
-                                                      <Color red="0.27843138575553894" green="0.7333333492279053" blue="0.48627451062202454" />
+                                                      <Color red="1.0" green="0.2823529541492462" blue="0.18431372940540314" />
                                                    </color>
                                                 </Stop>
                                                 <Stop offset="1.0">
                                                    <color>
-                                                      <Color red="0.29019609093666077" green="0.8117647171020508" blue="0.6235294342041016" />
+                                                      <Color red="0.9176470637321472" green="0.6392157077789307" blue="0.6392157077789307" />
                                                    </color>
                                                 </Stop>
                                              </stops>
@@ -88,11 +89,19 @@
                                     <Insets />
                                  </VBox.margin>
                               </VBox>
-                              <Button fx:id="continueButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToNextScene" prefHeight="50.0" prefWidth="283.0" styleClass="buttongreen">
+                              <Button fx:id="backButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#switchToPreviousScene" prefHeight="50.0" prefWidth="283.0" styleClass="buttongreen">
                                  <graphic>
                                     <HBox alignment="CENTER" prefHeight="61.0" prefWidth="133.0">
                                        <children>
-                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="258.0" styleClass="screenchange_button" stylesheets="@stylesheets/font.css" text="Back to Start" textFill="WHITE">
+                                          <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true" rotate="180.0">
+                                             <image>
+                                                <Image url="@media/arrow.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets />
+                                             </HBox.margin>
+                                          </ImageView>
+                                          <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="43.0" prefWidth="258.0" styleClass="screenchange_button" stylesheets="@stylesheets/font.css" text="Back" textFill="WHITE">
                                              <font>
                                                 <Font name="Century Gothic Bold" size="15.0" />
                                              </font>

@@ -79,9 +79,9 @@
 }
 
 .cancelbutton:hover {
-    -fx-background-color:   linear-gradient(to right, #f4aaaabf, #FF482FBF);
+    -fx-background-color:   linear-gradient(to right, #FF482FBF, #f4aaaabf);
 }
 
 .cancelbutton:pressed {
-    -fx-background-color: linear-gradient(to right, #ad2525bf, #FF482FBF);
+    -fx-background-color: linear-gradient(to right, #FF482FBF, #ad2525bf);
 }

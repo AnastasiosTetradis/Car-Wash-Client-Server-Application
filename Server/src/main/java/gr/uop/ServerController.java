@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -90,6 +91,20 @@ public class ServerController {
         registrationNumberCol.setCellValueFactory(new PropertyValueFactory<>("registrationNumber"));
         vehicleCol.setCellValueFactory(new PropertyValueFactory<>("vehicleType"));
         costCol.setCellValueFactory(new PropertyValueFactory<>("totalCost"));
+
+        // To Display Price Properly
+        // Source: https://stackoverflow.com/questions/60746829/display-two-decimal-places-of-a-float-in-a-tableview-javafx
+        costCol.setCellFactory(c -> new TableCell<>() {
+            @Override
+            protected void updateItem(Double balance, boolean empty) {
+                super.updateItem(balance, empty);
+                if (balance == null || empty) {
+                    setText(null);
+                } else {
+                    setText(String.format("%.2f", balance.doubleValue()) + " " + Server.getCurrencySymbol());
+                }
+            }
+        });
         entryTimeCol.setCellValueFactory(new PropertyValueFactory<>("arrivalDateTime"));
 
         //Adding data to the table
@@ -147,7 +162,7 @@ public class ServerController {
             serviceFrameController.setServiceNameLabel(service.getServiceName());
 
             // Set service price in frame
-            serviceFrameController.setServicePriceLabel(service.getServicePrice() + " €");
+            serviceFrameController.setServicePriceLabel(String.format("%.2f", service.getServicePrice()) + " " + Server.getCurrencySymbol());
 
             // Add service pane to serviceHolder
             serviceHolder.getChildren().add(serviceRoot);
