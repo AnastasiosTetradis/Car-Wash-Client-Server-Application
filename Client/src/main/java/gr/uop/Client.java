@@ -12,8 +12,14 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.time.LocalDateTime;
 import java.util.InputMismatchException;
 import java.util.Iterator;
@@ -428,9 +434,33 @@ public class Client extends Application {
     public static void sendData() {
         // Connecting to Server
 
-        // Sending Order
-        Client.getCurrentOrder().setArrivalDateTime(LocalDateTime.now());
-        System.out.println(Client.getCurrentOrder().toCSV());
+        try (Socket socket = new Socket("localhost", 9999);
+            ObjectOutputStream orderWriter = new ObjectOutputStream(socket.getOutputStream());) {
+
+            System.out.println("Connected to server!");
+
+            // Sending Order
+            // Client.getCurrentOrder().setArrivalDateTime(LocalDateTime.now()); // For debugging purposes
+            System.out.println("Sending Order: " + Client.getCurrentOrder().toCSV());
+            orderWriter.writeObject(currentOrder);
+
+            System.out.println("Order send!");
+
+            // Close resources
+            socket.close();
+            orderWriter.close();
+
+            // Clear data and thank client
+            Client.clearData();
+            Client.switchToThankYouPage();
+        }
+        catch (IOException e) {
+            System.out.println("IOException: " + e);
+
+            // Warn client 
+        }
+
+
 
         // Reseting order
         Client.setCurrentOrder(new Order());

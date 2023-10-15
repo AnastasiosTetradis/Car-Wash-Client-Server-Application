@@ -12,11 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.FlowPane;
 
 public class ServerController {
 
-    ObservableList<Order> orderList = Server.getOrderQueue().getOrderList();
+    private ObservableList<Order> orderList = Server.getOrderQueue().getOrderList();
 
     @FXML
     private TableView<Order> orderHolder;
@@ -92,6 +94,15 @@ public class ServerController {
 
         //Adding data to the table
         orderHolder.setItems(orderList);
+    }
+
+    @FXML
+    public void proceedOrderShortcut(KeyEvent e){
+        // https://stackoverflow.com/questions/13880638/how-do-i-pick-up-the-enter-key-being-pressed-in-javafx2
+        if(e.getCode() == KeyCode.ENTER)
+        {
+            proceedOrder();
+        }
     }
 
     @FXML

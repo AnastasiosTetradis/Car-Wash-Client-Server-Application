@@ -50,7 +50,7 @@
                   <Line endX="510.0" startX="-100.0" stroke="#ededed" />
                   <HBox alignment="BOTTOM_CENTER" prefHeight="578.0" prefWidth="591.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <TableView fx:id="orderHolder" prefHeight="658.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                        <TableView fx:id="orderHolder" onKeyPressed="#proceedOrderShortcut" prefHeight="658.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
                           <columns>
                             <TableColumn fx:id="registrationNumberCol" prefWidth="157.99996852874756" text="Registration Number" />
                             <TableColumn fx:id="vehicleCol" prefWidth="163.99996948242188" text="Vehicle" />

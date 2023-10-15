@@ -121,7 +121,6 @@ public class SelectedServiceListController {
 
     @FXML
     public void switchToNextScene(ActionEvent event) throws IOException{
-        Client.clearData();
-        Client.switchToThankYouPage();
+        Client.sendData();
     }
 }

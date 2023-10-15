@@ -16,6 +16,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.ObjectInputStream;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.Scanner;
@@ -25,7 +29,7 @@ import java.util.Scanner;
  */
 public class Server extends Application {
 
-    private static Scene scene;
+    private static Thread thread = null;
 
     private static OrderQueue orderQueue = new OrderQueue();
 
@@ -35,6 +39,14 @@ public class Server extends Application {
 
     public static void setOrderQueue(OrderQueue orderQueue) {
         Server.orderQueue = orderQueue;
+    }
+
+    public static Thread getThread() {
+        return thread;
+    }
+
+    public static void setThread(Thread thread) {
+        Server.thread = thread;
     }
 
     public static ObservableList<Order> readOrdersFromFile(){
@@ -175,52 +187,150 @@ public class Server extends Application {
         }
     }
 
-    @Override
-    public void start(Stage stage) throws IOException, ClassNotFoundException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Server.class.getResource("cashier.fxml"));
-        Parent mainPane = fxmlLoader.load();
+    public static void addOrderInFile(Order order){
+        URL url = Server.class.getResource("data/profit_file.txt");
+        File file = new File(url.getPath());
+        try{
+            String fileString = "";
+            Scanner scanner = new Scanner(file);
 
-        orderQueue.setOrderListFromFile();
-        orderQueue.getOrderList().remove(0);
-
-        Scene scene = new Scene(mainPane, 1080, 700);
-        stage.setScene(scene);
-        stage.setTitle("Car Reception Register");
-
-        stage.show();
-
-        // Setting Max and Minimum Size
-        stage.setMinWidth(1095);
-        stage.setMinHeight(737);
-
-        stage.setMaxWidth(1920);
-        stage.setMaxHeight(1080);
-
-        stage.setOnCloseRequest((e) -> {
-            if(orderQueue.getOrderList().size() >= 1){
-                // Απλό παράθυρο μηνύματος (Alert). Δίνεται ο τύπος (INFORMATION, WARNING, ERROR).
-                Alert alert = new Alert(AlertType.INFORMATION);
-    
-                // Βασικά στοιχεία του παραθύρου
-                alert.setTitle("Unproceeded Orders");
-                alert.setContentText("Please proceed all remaining orders first.");
-                alert.setHeaderText("Unproceeded Orders!");
-    
-                // Αν θα μπλοκάρει το παράθυρο της εφαρμογής.
-                alert.initModality(Modality.WINDOW_MODAL);
-    
-                // Ανάθεση του «γονικού» παραθύρου, ώστε να γνωρίζει ποιο θα μπλοκάρει.
-                alert.initOwner(stage);
-    
-                // Δυνατότητα ελέγχου των κουμπιών που εμφανίζονται για το Alert.
-                alert.initStyle(StageStyle.DECORATED);
-    
-                alert.show();
-
-                e.consume();
-                return;
+            //Storing all data from file into a string 
+            while(scanner.hasNextLine()){
+                String currentLine = scanner.nextLine() + "\n"; // Stupid nextLine() method takes my \n away >:(
+                fileString += currentLine;
             }
-        });
+
+            fileString += order.toCSV();
+
+            scanner.close();
+
+            System.out.println("File path == " + url.getPath());
+
+            FileWriter fileWriter = new FileWriter(file);
+            fileWriter.write(fileString);
+            fileWriter.flush();
+            fileWriter.close();
+
+            System.out.println("Order added to file successfully.");
+        }
+        catch(FileNotFoundException e){
+            System.out.println("File not found. Please find it.");
+        }
+        catch(IOException e){
+            System.out.println("File not found. Please find it.");
+        }
+    }
+
+    @Override
+    public void start(Stage stage){
+        try{
+            thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    int i = 0;  // Debugging counter
+
+                    // Checking if thread has been interrupted every time: https://stackoverflow.com/questions/20817980/java-thread-doesnt-stop-interrupt
+                    while(!Thread.interrupted()){
+                        // System.out.println("Thread running " + i);
+                        // i++;
+                        System.out.println("Scanning for orders...");
+                        Server.scanForOrder();
+                    }
+                }
+            });
+            
+        
+            FXMLLoader fxmlLoader = new FXMLLoader(Server.class.getResource("cashier.fxml"));
+            Parent mainPane = fxmlLoader.load();
+            
+            orderQueue.setOrderListFromFile();
+            orderQueue.getOrderList().remove(0);
+            
+            Scene scene = new Scene(mainPane, 1080, 700);
+            stage.setScene(scene);
+            stage.setTitle("Car Reception Register");
+            
+            stage.show();
+            thread.start();
+            
+            // Setting Max and Minimum Size
+            stage.setMinWidth(1095);
+            stage.setMinHeight(737);
+
+            stage.setMaxWidth(1920);
+            stage.setMaxHeight(1080);
+
+
+
+            stage.setOnCloseRequest((e) -> {
+                if(orderQueue.getOrderList().size() >= 1){
+                    // Απλό παράθυρο μηνύματος (Alert). Δίνεται ο τύπος (INFORMATION, WARNING, ERROR).
+                    Alert alert = new Alert(AlertType.INFORMATION);
+        
+                    // Βασικά στοιχεία του παραθύρου
+                    alert.setTitle("Unproceeded Orders");
+                    alert.setContentText("Please proceed all remaining orders first.");
+                    alert.setHeaderText("Unproceeded Orders!");
+        
+                    // Αν θα μπλοκάρει το παράθυρο της εφαρμογής.
+                    alert.initModality(Modality.WINDOW_MODAL);
+        
+                    // Ανάθεση του «γονικού» παραθύρου, ώστε να γνωρίζει ποιο θα μπλοκάρει.
+                    alert.initOwner(stage);
+        
+                    // Δυνατότητα ελέγχου των κουμπιών που εμφανίζονται για το Alert.
+                    alert.initStyle(StageStyle.DECORATED);
+        
+                    alert.show();
+
+                    e.consume();
+                    return;
+                }
+                thread.interrupt();
+            });
+        }
+        catch(IOException e){
+            System.out.println("IOException thrown!!!!");
+        }
+    }
+
+    public static void scanForOrder(){
+        try (ServerSocket serverSocket = new ServerSocket(9999);
+             Socket clientSocket = serverSocket.accept();
+             InputStream inputStream = clientSocket.getInputStream();
+             ObjectInputStream objectInputStream = new ObjectInputStream(inputStream);) {
+
+            System.out.println("Accepted connection: " + clientSocket);
+
+            // Receive object
+            Object receivedObject =  objectInputStream.readObject();
+            System.out.println("Received Object!");
+            
+            // Downcast object to order
+            Order receivedOrder = (Order) receivedObject;
+
+            // Add Arrival time to order
+            receivedOrder.setArrivalDateTime(LocalDateTime.now());
+            System.out.println("Received Order: " + receivedOrder.toCSV());
+            // Server.getThread().interrupt(); // For debugging purposes 
+
+
+            // Write down order in profit file
+            addOrderInFile(receivedOrder);
+
+            // Update service holder
+            orderQueue.addToOrderList(receivedOrder);
+
+
+        }
+        catch (IOException e) {
+            System.out.println("IOException found");
+            System.out.println(e);
+        }
+        catch (ClassNotFoundException e) {
+            System.out.println("ClassNotFoundException found");
+            System.out.println(e);
+        }
     }
 
     public static void main(String[] args) {
