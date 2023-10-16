@@ -1,0 +1,236 @@
+\chapter{Σχετικά με την εργασία}
+\label{ch:ChapterName1}
+Σε αυτό το κεφάλαιο αποτυπώνονται όλα όσα πρέπει να αναφερθούν πριν την περιγραφή των προγραμμάτων για την καλύτερη κατανόηση του περιεχομένου της αναφοράς.
+
+    \section{Στόχοι Εργασίας}
+    \label{sec:SectionName1.1}
+
+    \subsection{Βασικοί Στόχοι Εργασίας}
+    \label{sec:SubSectionName1.1.1}
+    
+    Βασικός στόχος της εργασίας είναι η πλήρη ανάπτυξη και υλοποίηση ενός ζεύγους προγραμμάτων για μία επιχείρηση πλυντηρίου οχημάτων. Το πρώτο από τα δύο αυτά προγράμματα, ο λεγόμενος Client, είναι ένα πρόγραμμα που θα τρέχει σε μια οθόνη προσβάσιμη από χρήστες (πελάτες του μαγαζιού). Αυτός θα καταγράφει τις επιλογές των χρηστών, θα τις καταχωρεί σε παραγγελίες και θα τις στέλνει στο δεύτερο πρόγραμμα, τον Server. Ο Server, είναι ένα πρόγραμμα που θα τρέχει στον υπολογιστή του ταμείου της επιχείρησης. Αυτός θα λαμβάνει τις παραγγελίες από τον Client και, με βάση την είσοδο του ταμία, θα τις καταχωρεί ή θα τις διαγράφει από ένα αρχείο εσόδων.\newpage
+    
+    \subsection{Περαιτέρω Στόχοι Εργασίας}
+    \label{sec:SubSectionName1.1.2}
+    Για την ευρύτερη χρήση των προγραμμάτων, έγινε προσπάθεια τα προγράμματα (κυρίως του Client) να προσφέρουν ένα κομμάτι της προσαρμοστικότητάς τους στον πελάτη\footnote{} χωρίς την ανάγκη τροποποίησης του πηγαίου τους κώδικα. Έτσι, ο πελάτης μπορεί να τροποποιήσει ορισμένα στοιχεία της διεπαφής και των δεδομένων προς την προτίμησή του χωρίς να χρειάζεται να ξέρει τίποτα σχετικά με τις τεχνολογίες που χρησιμοποιήθηκαν για την υλοποίηση των προγραμμάτων (Java/JavaFX/FXML). 
+    Ως συνέπεια αυτού όμως, η διεπαφή πρέπει να παράγεται με δυναμικό τρόπο έτσι ώστε να υποστηρίζονται όλες οι αλλαγές της διεπαφής που θέλει να υλοποιήσει ο πελάτης. Έτσι, για παράδειγμα, ο χρήστης μπορεί να προσθέσει τους δικούς του τύπους οχημάτων, έξτρα υπηρεσίες, τα δικα του εικονίδια ή ακόμα και να αλλάξει τα ήδη υπάρχων δεδομένα (πχ. τιμή, όνομα υπηρεσίας) ή και τη σειρά με την οποία εμφανίζονται. 
+    \newpage
+    
+    \section{Σημαντικές Ορολογίες}
+    \label{sec:SectionName1.2}
+    Για την αποφυγή σύγχυσης, αναφέρονται και εξηγούνται ορισμένες έννοιες οι οποίες είναι σημαντικό να ξεκαθαριστούν από νωρίς.
+
+    \begin{itemize}
+        \item \textbf{Ομάδα ανάπτυξης}, των προγραμμάτων αποτελείται από τους συγγραφείς της αναφοράς.
+        
+        \item \textbf{Πελάτης}, είναι το άτομο που αποκτά το ζέυγος προγραμμάτων από την ομάδα ανάπτυξης (πχ. ο διευθυντής της επιχείρησης.)
+        
+        \item \textbf{Χρήστης}, είναι το άτομο που θα χρήσιμοποιήσει ένα (τουλάχιστον) από τα δύο προγράμματα (πχ. πελάτης της επιχείρησης για τον Client, ταμίας για τον Server).
+        
+        \item \textbf{Παραγγελία (order)}, είναι το σύνολο των υπηρεσιών που επιλέγει και ζητά ένας χρήστης, συνοδευμένο από περαιτέρω δεδομένα (πχ. αριθμό κυκλοφορίας, τύπος οχήματος κλπ.) 
+        
+        \item \textbf{Υπηρεσία (service)}, είναι μια ενέργεια συντήρησης/εκκαθάρισης για συγκεκριμένο όμως τύπο και περιοχή/εξάρτημα ενός οχήματος (πχ. εξωτερικό καθάρισμα αυτοκινήτου \textbf{δεν} είναι η ίδια υπηρεσία με το εξωτερικό καθαρισμό για 4X4 Jeep)
+        
+        \item \textbf{Ομάδα Υπηρεσιών (service group)}, είναι μια ομαδοποίηση ενός συνόλου παρόμοιων υπηρεσιών (πχ. το "εξωτερικό καράρισμα" περιλαμβάνει απλή, ειδική και βιολογική έκδοση, αλλά και οι τρείς εκδοχές αποτελούν τρείς διαφορετικές υπηρεσίες).    
+    \end{itemize}
+
+     
+
+    \section{Δομή Εργασίας}
+    \label{sec:SectionName1.3}
+    Για την καλύτερη κατανόηση της περιγραφής της λειτουργικότητας των προγραμμάτων, θα επεξηγηθεί η γενική δομή της εργασίας, καθώς και ο ρόλος της κάθε κλάσης και αρχείου. 
+    
+        \subsection{Γενική Δομή Εργασίας}
+        \label{sec:SectionName1.3.1}
+        Η εργασία χωρίζεται σε 2 επιμερούς φακέλους, ένα για τον Client και ένα για τον Server. Και για τους δύο φακέλους, οι σημαντικότεροι υποφάκελοι είναι 
+        \begin{enumerate}
+            \item ο φάκελος "java" που περιέχει όλες τις προσαρμοσμένες (custom) κλάσεις που χρησιμοποιούνται από το πρόγραμμα και
+            
+            \item ο φάκελος "resources" που περιέχει όλο το υλικό που χρησιμοποιεί το πρόγραμμα, όπως  αρχεία διεπαφής (fxml), στυλιστικά αρχεία (css), αρχεία εικόνων/εικονιδίων (png) και αρχεία δεδομένων χρήστη (προσαρμοσμένα xml και png).
+        \end{enumerate}
+        
+        \subsection{Περιγραφή Κλάσεων}
+        \label{sec:SectionName1.3.2}
+        Οι κλάσεις που δημιουργήθηκαν για την ορθή λειτουργία των προγραμμάτων είναι οι εξής:
+        \begin{itemize}
+            \item \textbf{Service}, είναι η κλάση που αναπαριστά μία υπηρεσία. Κάθε υπηρεσία έχει ένα όνομα, μία τιμή και μια αναφορά στην ομάδα (group) που ανήκει.
+            
+            \item \textbf{ServiceGroup}, είναι η κλάση που αναπαριστά μια ομάδα από υπηρεσίες. Κάθε ομάδα (group) έχει ένα όνομα, ένα αναγνωριστικό εικονιδίου και μια λίστα από υπηρεσίες 
+            \item \textbf{Vehicle}, είναι η κλάση που αναπαριστά ένα τύπο οχήματος που υποστηρίζει η επιχείρηση. Κάθε τύπος οχήματος έχει ένα όνομα, ένα αναγνωριστικό εικονιδίου και μια λίστα από ομάδες διαθέσιμων υπηρεσιών.  
+            \newpage
+            
+            \item \textbf{ServiceDB}, είναι η κλάση που αναπαριστά μια δομή που κρατά όλες τις πληροφορίες για όλες τις διαθέσιμες υπηρεσίες που προσφέρει η επιχείρηση. Περιέχει ένα σύνολο από τύπους οχημάτων.\footnote{Περιέχει και αναγνωριστικά χρωμάτων, το οποία όμως χρησιμοποιούνται μόνο για debugging.} Δεδομένου ότι η κλάση αυτή χρειάζεται να κρατάει μια συλλογή από τύπους οχημάτων \textbf{χωρίς αντίγραφα}, μια δομή τύπου Set είναι κατάλληλη. Ο λόγος όμως χρήσης του \textbf{LinkedHashSet} συγκεκριμένα είναι επειδή η δομή αυτή διατηρεί και την σειρά με την οποία εισάγονται τα δεδομένα. Αυτό καθιστά δυνατό έμμεσα στον πελάτη να έχει έλεγχο όχι μόνο στα δεδομένα που θέλει να προβάλλει, αλλά και στη \textbf{σειρά με την οποία τα δεδομένα αυτά εμφανίζονται}.
+
+            \item \textbf{Order}, είναι η κλάση που αναπαριστά μια παραγγελία. Κάθε παραγγελία έχει τον αριθμό κυκλοφορίας του χρήστη, το όνομα του ζητούμενου τύπου οχήματος, μια λίστα από ζητούμενες υπηρεσίες, το συνολικό κόστος των υπηρεσιών αυτών και μια ημερομηνία άφιξης και ολοκλήρωσης.  
+
+            \item \textbf{OrderQueue}, είναι μια κλάση που χρησιμοποιείται μόνο από τον Server και αναπαριστά μια συλλογή από παραγγελίες. Έχει ως πεδίο μια παρατηρήσιμη (observable) λίστα από παραγγελίες.
+            
+            \item \textbf{Controller} κλάσεις, είναι όλες οι κλάσεις που το όνομα τους τελειώνει σε "Controller" (πχ. RegistrationNumberController). Κάθε Controller κλάση είναι υπεύθυνη για την συμπεριφορά \textbf{μίας} σελίδας.
+            
+            \item \textbf{Client}, είναι η βασική κλάση του Client προγράμματος και περιέχει όλη την κύρια λειτουργικότητά του. Η κλάση αυτή είναι επίσης υπεύθυνη και για την αλλαγή οθονών.
+            
+            \item \textbf{Server}, αντίστοιχα με την κλάση Client παραπάνω, είναι η βασική κλάση του Server προγράμματος και περιέχει όλη την κύρια λειτουργικότητά του.
+        \end{itemize}
+        \newpage
+        
+        \subsection{Περιγραφή Αρχείων}
+        \label{sec:SectionName1.3.3}
+        Τα αρχεία που χρησιμοποιούν τα προγράμματα είναι τα εξής:
+        \begin{itemize}
+            \item Αρχεία διεπαφής \textbf{.fxml} (resources\textbackslash gr\textbackslash uop), είναι τα αρχεία με οποία έχουν υλοποιηθεί όλες οι οθόνες των προγραμμάτων.
+            
+            \item Στυλιστικά Αρχεία \textbf{.css} (resources\textbackslash gr\textbackslash uop\textbackslash stylesheets), είναι τα αρχεία με τα οποία έχουν ορίζουν εμφανισιακά ορισμένα στοιχεία των οθονών.
+            
+            \item Αρχεία γραμματοσειρών\textbf{.ttf} (resources\textbackslash gr\textbackslash uop\textbackslash stylesheets\textbackslash fonts) είναι τα αρχεία τα οποία προσφέρουν προσαρμοσμένες γραμματοσειρές στην διεπαφή.
+            
+            \item Αρχεία εικονιδίων \textbf{.png} (resources\textbackslash gr\textbackslash uop\textbackslash data) είναι τα αρχεία με τα οποία φορτώνονται τα εικονίδια \textit{που θέλει ο πελάτης} στην διεπαφή.
+            
+            \item Αρχεία διαμόρφωσης \textbf{config.xml} (resources\textbackslash gr\textbackslash uop\textbackslash data) είναι τα αρχεία με τα οποία ο πελάτης έχει την δυνατότητα να προσαρμόσει ορισμένα στοιχεία και δεδομένα του προγράμματος.
+        \end{itemize}
+
+    \section{Αναφορές Πηγών}
+    \label{sec:SectionName1.4}
+    Κατά την διαδικασία υλοποίσης της εργασίας, χρησιμοποιήθηκαν εξωτερικές πηγές για την υλοποίηση ορισμένων αντικειμένων (πχ. για τα Threads). Για την αποφυγή αντιγραφής και λογοκλοπής, οι περισσότερες (αν όχι όλες) οι πηγές έχουν συμπεριληφθεί ως σχόλια στον πηγαίο κώδικα, στα αντίστοιχα σημεία που αναφέρονται. Οι σύνδεσμοι αυτοί επίσης συμπεριλαμβάνονται και στο τέλος της αναφοράς ως "πηγές" (references).
+    
+\chapter{Λειτουργικότητα Προγραμμάτων}
+\label{ch:ChapterName2}
+Σε αυτό το κεφάλαιο θα αναλυθεί ο τρόπος λειτουργίας των Client και Server.
+
+    \section{Λειτουργικότητα Client}
+    \label{sec:SectionName2.1}
+    
+    
+        \subsection{Γενική Περιγραφή Δομής} 
+        \label{sec:SubSectionName2.1.1}
+        Ο Client περιέχει (ως static πεδία) μια δομή με όλες τις πληροφορίες των διαθέσιμων υπηρεσιών από τον πελάτη\footnote{Διευθυντή πλυντηρίου.} (ServiceDB), μια δομή για την αποθήκευση των επιλογών του χρήστη (Order), δομές αντιστοιχίας κουμπιών - δεδομένων\footnote{Η χρησιμότητά τους περιγράφεται αναλυτικότερα παρακάτω.} και δομες παρατήρησης αλλαγής επιλογών του χρήστη.
+        \newpage
+        
+        \subsection{Αρχικοποίηση Βάσης Δεδομένων}
+        \label{sec:SubSectionName2.1.2}
+        Το πρόγραμμα του Client ξεκινά διαβάζοντας το αρχείο config.xml. Ο τρόπος ανάνγωσης του αρχείου είναι μια απλή προσπέλαση όλων των XML Tags, όπου το κάθε tag αντιστοιχεί σε κάποιο αντικείμενο του Client (πχ. με το tag <vehicle> φτιάχνεται ένα αντικείμενο τύπου Vehicle). Tag προς tag η δομή δεδομένων συμπληρώνεται ώσπου να τελειώσει το αρχείο. Αν διαπιστωθεί λάθος σύνταξη (formatting) τότε το πρόγραμμα δεν εκκινεί. Επιλέχθηκε η XML σύνταξη (και όχι JSON) επειδή είναι πιο απλή στην κατανόηση από ένα προγραμματιστικά ανέμπειρο άτομο.
+        
+        \subsection{Υλοποίηση Φόρτωσης Διεπαφής}
+        \label{sec:SubSectionName2.1.3}
+        Κάθε οθόνη έχει υλοποιηθεί μέσω \textit{τουλάχιστον ενός} FXML αρχείου. Κατα τη διάρκεια φόρτωσης μιας σελίδας, με βάση τα δεδομένα από τη δομή δεδομένων (ServiceDB), καθώς και τις επιλογές του χρήστη (Order), φορτώνονται τα αντίστοιχα (και σε δεδομένα, και σε αριθμό) επιμερούς FXML στοιχεία. Η αλλαγή από σκηνή σε σκηνή γίνεται μέσω του Client. 
+        \newline
+        \newline
+        Τα επιμερούς FXML στοιχεία αντιστοιχούνται με την ανάλογη υπηρεσία τους σε μια δομή αντιστοιχίας. Αυτό γίνεται επειδή σε περίπτωση ενέργειας (πχ. πάτημα κουμπιού) το επιμερούς FXML στοιχείο δε μπορεί να ξέρει άμεσα από τον FXML γονέα του ποιά υπηρεσία αντιστοιχεί σε αυτό (πχ. αν πατηθεί κουμπί επιλογής υπηρεσίας, ποιά υπηρεσία πρέπει να εισαχθεί στην παραγγελία;). Μέσω των δομών αντιστοιχίας, όχι μόνο τα επιμερούς FXML στοχεία λειτουργούν ορθά, αλλά έχουν και την δυνατότητα απομνημόνευσης επιλογών σε περίπτωση  οπισθοδρόμησης (για παράδειγμα, αν ο χρήστης δει την τελική παραγγελία και διαπιστώσει ότι ξέχασε να επιλέξει μια υπηρεσία, γυρνώντας πίσω στην προηγούμενη σελίδα, τα στοιχεία που είχε ήδη επιλέξει εμφανίζονται ήδη επιλεγμένα).
+        \newpage
+
+        \subsection{Συλλογή Δεδομένων Παραγγελίας}
+        \label{sec:SubSectionName2.1.4}
+        Οι επιλογές του χρήστη δεν αποθηκεύονται απευθείας στην δομή της παραγγελίας (Order). Πρώτα αποθηκεύονται σε μια "παρατηρήσιμη" δομή (Observable) και μετά αποθηκεύονται στην κύρια δομή της παραγγελίας. Αυτό γίνεται επειδή για να μπορέσουν τα επιμερούς FXML στοιχεία μιας οθόνης να "ακούν" για αλλαγές κάποιου στοιχείου/πεδίου (πχ. αριθμός στοιχείων TableView), το πεδίο./στοιχείο αυτό πρέπει αναγκαστικά να είναι static. Όμως, τα FXML πεδία εξ' ορισμού \textit{δεν μπορούν να είναι static}. Επομένως, αποθηκεύοντας τις αλλαγές πρώτα σε μια δομή παρατήρησης και μετέπειτα στη δομή παραγγελίας, δίνεται η δυνατότητα σε όλα τα FXML στοιχεία να αντιδρούν ορθά στις αλλαγές με βάση τις επιλογές του χρήστη.
+        
+        \subsection{Αποστολή Παραγγελίας}
+        \label{sec:SubSectionName2.1.7}
+        Κατά την ολοκλήρωση της παραγγελίας, εμφανίζεται η οθόνη επανακεφαλαίωσης, στην οποία ο χρήστης έχει την δυνατότητα να επιθεωρίσει τις επιλογές του, να αφαιρέσει όποια δεν επιθυμεί και τέλος να καταχωρίσει την παραγγελία στον Server. Αν η σύνδεση με τον Server και η αποστολή της παραγγελίας είναι επιτυχή, τότε εμφανίζεται η οθόνη επιβεβαίωσης. Σε διαφορετική περίπτωση, εμφανίζεται η οθόνη σφάλματος, που παρακινεί τον χρήστη να δοκιμάσει να ξαναστείλει την παραγγελία αργότερα. 
+        \newline
+        \newline
+        Η παραγγελία στέλνεται \textbf{ως ένα αντικείμενο} στον Server για λόγους απλότητας. Για την αποφυγή λάθους κατά την αποστολή, αποφεύχθηκε η χρήση των δομών παρακολούθησης αλλαγών (Observable) εντός της δομής Order. Για αυτό το λόγο, οι δομές αυτές χρησιμοποιούνται αναγκαστικά στον Client.
+
+    \section{Λειτουργικότητα Server}
+    \label{sec:SectionName2.2}
+
+        \subsection{Γενική Περιγραφή Δομής}
+        \label{sec:SubSectionName2.2.1}
+        Η δομή του Server είναι πολύ παρόμοια με αυτή του Client. Η δομή παραγγελίας (Order), η δομή πληροφοριών (ServiceDB) και όλες οι επιμερούς δομές (Vehicle, ServiceGroup και Service) είναι κοινές με αυτές του Client.
+        
+        \subsection{Αρχικοποίηση Βάσης Δεδομένων}
+        \label{sec:SubSectionName2.2.2}
+        Με τον τρόπο που δουλεύει ο Server, τα δεδομένα δεν χρειάζονται για την ορθή λειτουργία του, καθώς κάθε παραγγελίας ήδη κουβαλάει ως πεδίο και το συνολικό της κόστος. Για λόγους όμως ασφάλειας διατήρησης της ακεραιότητας των δεδομένων, προστέθηκε η δομή αυτή μαζί με έναν μηχανισμό αποφυγής απάτης (scam prevention mechanism) ο οποίος περιγράφεται παρακάτω. Κατά την εκκίνηση του Server, η δομή πληροφοριών αρχικοποιείται κανονικά με το config.xml αρχείο, ακριβώς με τον ίδιο τρόπο όπως και στον Client.
+        
+        \subsection{Συλλογή Παραγγελιών}
+        \label{sec:SubSectionName2.2.3}
+        Αμέσως μετά την αρχικοποίηση της δομής πληροφοριών, φτιάχνεται ένα Thread το οποίο κοιτάζει επαναληπτικά την θύρα (port) 9999. Με το που σταλθεί παραγγελία από τον client, το thread αυτό το λαμβάνει ως απλό Java αντικείμενο (object), το μετατρέπει (downcast) σε Order, διεσφαλίζει τα δεδομένα του και αν η παραγγελία είναι έγκυρη τότε την προσθέτει στο αρχείο εσόδων και στην δομή ουράς παραγγελιών.
+
+        \subsection{Μηχανισμός Επιβεβαίωσης Ακεραιότητας Παραγγελιών}
+        \label{sec:SubSectionName2.2.4}
+        Η διασφάλιση των δεδομένων της παραγγελίας είναι μια απλή "επανεγγραφή" των τιμών της παραγγελίας. Στη περίπτωση που, με κάποιο τρόπο, ένας χρήστης καταφέρει να παραβιάσει τα δεδομένα της εφαρμογής του Client και να τροποποιήσει τις τιμές των υπηρεσιών προς όφελός του, ο server απλά θα ξαναγράψει (overwrite) τις τιμές των υπηρεσιών της παραγγελίας σύμφωνα με αυτές που θα έπρεπε να είναι. Έτσι αποφεύγονται απάντες και στην περίπτωση που με τον ίδιο τρόπο εισαχθεί στη παραγγελία μη διαθέσιμη υπηρεσία σκοπίμως, η παραγγελία απλά απορρίπτεται.\footnote{Σε περίπτωση απόρριψης παραγγελίας, ο χρήστης που έκανε την παραγγελία \textbf{δεν} ενημερώνεται.}
+    
+        \subsection{Καταγραφή Παραγγελιών}
+        \label{sec:SubSectionName2.2.5}
+        Όπως αναφέρθηκε και παραπάνω, οι παραγγελίες που εγγράφονται στο αρχείο εσόδων προσθέτονται επιτόπου στη δομή ουράς παραγγελιών. Παρά το όνομα της, η ουρά παραγγελιών ως δομή είναι μια (παρατηρήσιμη) λίστα από παραγγελίες. Ο λόγος που δεν υλοποιήθηκε ως ουρά Queue είναι επειδή θεωρήθηκε πολύ πιθανή η περίπτωση ολοκλήρωσης μιας παραγγελίας, που εισήλθε τελευταία, πρώτη από άλλες που εισήλθαν πριν από αυτήν. Σε μια τέτοια περίπτωση, θεωρείται δύσκολη την ολοκλήρωση μιας παραγγελίας που βρίσκεται στο τέλος της ουράς. Επίσης, με μια παρατηρήσιμη (Observable) δομή, τα στοιχεία που πρέπει να αντιδρουν στις αλλαγές της ουράς παραγγελιών παρατηρούν τις αλλαγές αυτές πολύ πιο εύκολα.
+        
+        \subsection{Υλοποίηση Διεπαφής}
+        \label{sec:SubSectionName2.2.6}
+        Η διεπαφή του Server είναι υλοποιημένη με τον ακριβώς ίδιο τρόπο όπως και με τον Client. Επειδή όμως ο Server, σε αντίθεση με τον Client, δεν έχει διαδραστικά επιμερούς FXML στοιχεία, δεν χρειάζονται (και συνεπώς δεν περιέχει ως πεδία) δομές αντιστοίχης. Ορισμένα στοιχεία αντιδρούν σε αλλαγές της δομής παραγγελιών (πχ TableView) ακούγοντας τη λίστα της ίδιας της δομής απευθείας, χωρίς την χρήση εξωτερικών παρατηρήσιμων δομών όπως στον Client.
+
+%%%%%%%%%%% References apprear somewhere here too
+
+\chapter{Πηγές}
+\label{ch:ChapterName3}
+
+    \section{Γραφικά Διεπαφών}
+    \label{sec:SectionName3.1}
+    \begin{enumerate}
+        \item Figma Application Concept Project \url{https://www.figma.com/file/GrHIr6VidoBMWSuZBkDUW2/Untitled?type=design&node-id=0%3A1&mode=design&t=r1xZMeqV9e17BGBo-1}
+    \end{enumerate}
+
+    \section{Πηγές Εικονιδίων - Εικονογραφήσεων}
+    \label{sec:SectionName3.2}
+    \begin{enumerate}
+        \item Εικονογραφήσεις \url{https://storyset.com/ }
+        \item Εικονίδια \url{https://www.flaticon.com/}
+        \item Εικονίδια \url{https://iconscout.com/}
+    \end{enumerate}
+
+    \section{Προγραμματιστικές Πηγές}
+    \label{sec:SectionName3.3}
+    \begin{enumerate}
+        \item TableView Information \url{https://docs.oracle.com/javafx/2/ui_controls/table-view.htm}
+
+        \item LocalDateTime Information \#1 \url{https://www.w3schools.com/java/java_date.asp}
+        
+        \item LocalDateTime Information \#2 \url{https://www.geeksforgeeks.org/java-time-localdatetime-class-in-java/}
+        
+        \item LinkedHashSet vs LinkedHashMap Difference in Memory. \url{https://stackoverflow.com/questions/65702840/linkedhashmap-vs-linkedhashset-for-retrieving-specific-elements-retrieving-in?noredirect=1&lq=1}
+        
+        \item Collectors.toSet (NOT USED)\url{https://www.geeksforgeeks.org/collectors-toset-in-java-with-examples/}
+        
+        \item Controller Access Ideas \url{https://stackoverflow.com/questions/10751271/accessing-fxml-controller-class}
+        
+        \item FXMLLoader Handling \url{https://bugs.openjdk.org/browse/JDK-8125877}
+        
+        
+        \item Changing Image in ImageView (Never replace the actual imageView \#1) \url{https://stackoverflow.com/questions/29500761/javafx-change-the-image-in-an-imageview}
+        
+        \item Initialize Method (Never replace the actual imageView \#2) \url{https://stackoverflow.com/questions/60323494/javafx-if-node-equals-node}
+        
+        \item Contructor vs Initialize \url{https://stackoverflow.com/questions/34785417/javafx-fxml-controller-constructor-vs-initialize-method}
+        
+        \item Using Java to reset an element's style \url{https://stackoverflow.com/questions/30759310/how-to-reset-back-to-default-css-after-adding-style}
+        
+        \item Using Initialize method to set up FXML listeners \url{https://stackoverflow.com/questions/53613385/fxmlloader-use-adding-data-to-a-component-controlled-by-another-controller}
+        
+        \item How to listen to ObservableList changes \#1 \url{https://stackoverflow.com/questions/51081000/javafx-listen-to-changes-in-list}
+        
+        \item How to listen to ObservableList changes \#2 \url{https://stackoverflow.com/questions/19890250/instantiating-observableintegervalue-in-javafx}
+        
+        \item How to listen to ObservableList changes \#3 \url{https://genuinecoder.com/javafx-observable-list-tutorial/}
+        
+        \item Lambda writing for ListChangeListeners \url{https://itecnote.com/tecnote/java-how-to-write-a-new-listchangelistener-with-lambda/}
+        
+        \item NotSerializableException Information \url{https://www.geeksforgeeks.org/notserializableexception-in-java-with-examples/}
+        
+        \item InvalidClassException Information \url{https://stackoverflow.com/questions/10378855/java-io-invalidclassexception-local-class-incompatible}
+        
+        \item How to populate FXML Injected TableView with existing data \url{https://www.tutorialspoint.com/how-to-add-data-to-a-tableview-in-javafx}
+        
+        \item The idea of using observable lists \url{https://stackoverflow.com/questions/41508932/javafx-add-rows-at-the-beginning-of-the-tableview}
+        
+        \item ClassCastException Information (FOR CSS PROBLEM) \url{https://stackoverflow.com/questions/27311222/javafx-getting-class-cast-exception-in-css-for-blend-mode}
+        
+        \item How to properly stop a thread in Java \url{https://stackoverflow.com/questions/10961714/how-to-properly-stop-the-thread-in-java}
+        
+        \item Thread.stop() vs Thread.interrupt() \url{https://stackoverflow.com/questions/5244312/why-doesnt-thread-stop-work-in-situations-where-thread-interrupt-doesnt-work?rq=3}
+        
+        \item BindException Information \url{https://stackoverflow.com/questions/12737293/how-do-i-resolve-the-java-net-bindexception-address-already-in-use-jvm-bind}
+        
+        \item How to delete a thread in Java \#1 \url{https://www.geeksforgeeks.org/killing-threads-in-java/}
+        
+        \item How to delete a thread in Java \#2 \url{https://stackoverflow.com/questions/30436082/how-to-delete-a-thread-in-java}
+        
+        \item Thread Still running after program Termination \url{https://stackoverflow.com/questions/48581777/threads-still-running-after-system-exit}
+    \end{enumerate}
+        
+        

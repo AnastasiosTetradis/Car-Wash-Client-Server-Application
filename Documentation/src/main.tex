@@ -1,0 +1,87 @@
+% Paper Style Packages
+\documentclass[hidelinks, a4paper, 12pt]{report}
+\usepackage{tocbibind}
+\setlength{\tolerance}{1}                   % Prevent hyphenation / overflowing
+\setlength{\emergencystretch}{\maxdimen}    % -//-
+\setlength{\hyphenpenalty}{10000}           % -//-
+\setlength{\hbadness}{10000}                % -//-
+\usepackage{fancyhdr}           % Page numerating style
+\setlength{\headheight}{15pt}   % -//-
+\pagestyle{fancy}               % -//-
+\fancyhf{}                      % -//-
+\fancyhead[L]{\leftmark}        % -//-
+\fancyhead[R]{\thepage}         % -//-
+
+
+% Language Packages
+\usepackage{minted}
+\usepackage[unicode]{hyperref}
+\usepackage[LGR, T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english, greek]{babel}
+\usepackage{alphabeta}
+\DeclareTextCompositeCommand{\acctonos}{PU}{\textalpha}{\9003\254}
+\DeclareTextCompositeCommand{\acctonos}{PU}{\textepsilon}{\9003\255}
+\DeclareTextCompositeCommand{\acctonos}{PU}{\texteta}{\9003\256}
+\DeclareTextCompositeCommand{\acctonos}{PU}{\textiota}{\9003\257}
+\DeclareTextCompositeCommand{\acctonos}{PU}{\textomicron}{\9003\314}
+\DeclareTextCompositeCommand{\acctonos}{PU}{\textomega}{\9003\316}
+\DeclareTextCommand{\textfinalsigma}{PU}{\9003\302}
+\usepackage{csquotes}
+\usepackage{dirtytalk}
+
+% Bibliography Packages
+\usepackage[backend=biber, style=numeric, natbib=true, sorting=none]{biblatex}
+\usepackage{biblatex}
+\addbibresource{bibliography.bib}
+
+
+% Graphic Packages
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
+
+% Paragraph Packages
+\usepackage{indentfirst}            % Indent at the start of every paragraph
+\setlength{\parindent}{2em}         % Size of indent
+\setlength{\parskip}{1em}           % Space between paragraphs
+
+
+% Document Details
+\title{Τίτλος Εγγράφου}
+\author{Αργυρός Κωνσταντίνος 2022202000014 \newline \newline Αναστάσιος Τετράδης 2022202000206}
+
+
+\begin{document}
+
+    \input{title/title.tex}
+    
+    \selectlanguage{english}
+    
+    % Define names of report parts
+    \renewcommand{\contentsname}{Περιεχόμενα}
+    \renewcommand{\listfigurename}{Λίστα Σχημάτων}
+    \renewcommand{\listtablename}{Λίστα Πινάκων}
+    \renewcommand{\chaptername}{Κεφάλαιο}
+    \renewcommand{\appendixname}{Παράρτημα}
+    \renewcommand{\bibname}{Βιβλιογραφία}
+    
+    \pagenumbering{roman}
+    \setlength{\parskip}{0.5em}     % Space between paragraphs
+
+    \tableofcontents
+    % \listoffigures
+    % \listoftables
+    
+    \newpage
+    
+    \pagenumbering{arabic}
+    \setlength{\parskip}{1em}       % Space between paragraphs
+
+    \include{ChapterTemplate}
+    % \include{Chapter1}
+    % \include{Chapter2}
+    % \include{Chapter3}
+    % \include{Chapter4}
+\end{document}
