@@ -1,0 +1,212 @@
+<vehicles>
+    <vehicle>
+        <vehicleName>Jeep</vehicleName>
+        <vehicleIcon>jeep.png</vehicleIcon>
+        <serviceList>
+            <serviceGroup>
+                <groupName>Interior Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>Standard</serviceName>
+                        <servicePrice>7</servicePrice>
+                        <serviceValues>1</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Special</serviceName>
+                        <servicePrice>9</servicePrice>
+                        <serviceValues>1</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Biological</serviceName>
+                        <servicePrice>80</servicePrice>
+                        <serviceValues>1</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Exterior Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>Standard</serviceName>
+                        <servicePrice>8</servicePrice>
+                        <serviceValues>2</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Special</serviceName>
+                        <servicePrice>10</servicePrice>
+                        <serviceValues>2</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Combined Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>In & Out Standard</serviceName>
+                        <servicePrice>14</servicePrice>
+                        <serviceValues>1,2</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>In & Out Special</serviceName>
+                        <servicePrice>17</servicePrice>
+                        <serviceValues>1,2</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Extra Services</groupName>
+                <groupIcon>extraserviceicon.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>Engine</serviceName>
+                        <servicePrice>20</servicePrice>
+                        <serviceValues>11</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Wax & Polish</serviceName>
+                        <servicePrice>90</servicePrice>
+                        <serviceValues>22</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Chassis</serviceName>
+                        <servicePrice>3</servicePrice>
+                        <serviceValues>33</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+        </serviceList>
+    </vehicle>
+    <vehicle>
+        <vehicleName>Car</vehicleName>
+        <vehicleIcon>car.png</vehicleIcon>
+        <serviceList>
+            <serviceGroup>
+                <groupName>Interior Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>Standard</serviceName>
+                        <servicePrice>6</servicePrice>
+                        <serviceValues>1</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Special</serviceName>
+                        <servicePrice>8</servicePrice>
+                        <serviceValues>1</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Biological</serviceName>
+                        <servicePrice>80</servicePrice>
+                        <serviceValues>1</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Exterior Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>Standard</serviceName>
+                        <servicePrice>7</servicePrice>
+                        <serviceValues>2</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Special</serviceName>
+                        <servicePrice>9</servicePrice>
+                        <serviceValues>2</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Combined Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>In & Out Standard</serviceName>
+                        <servicePrice>12</servicePrice>
+                        <serviceValues>1,2</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>In & Out Special</serviceName>
+                        <servicePrice>15</servicePrice>
+                        <serviceValues>1,2</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Extra Services</groupName>
+                <groupIcon>extraserviceicon.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>Engine</serviceName>
+                        <servicePrice>20</servicePrice>
+                        <serviceValues>11</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Wax & Polish</serviceName>
+                        <servicePrice>80</servicePrice>
+                        <serviceValues>22</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Chassis</serviceName>
+                        <servicePrice>3</servicePrice>
+                        <serviceValues>33</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+        </serviceList>
+    </vehicle>
+    <vehicle>
+        <vehicleName>Motorbike</vehicleName>
+        <vehicleIcon>motorcycle.png</vehicleIcon>
+        <serviceList>
+            <serviceGroup> 
+                <groupName>Interior Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Exterior Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>Standard</serviceName>
+                        <servicePrice>6</servicePrice>
+                        <serviceValues>2</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Special</serviceName>
+                        <servicePrice>8</servicePrice>
+                        <serviceValues>2</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Combined Services</groupName>
+                <groupIcon>car_wash.png</groupIcon>
+                <services>
+                </services>
+            </serviceGroup>
+            <serviceGroup>
+                <groupName>Extra Services</groupName>
+                <groupIcon>extraserviceicon.png</groupIcon>
+                <services>
+                    <service>
+                        <serviceName>Engine</serviceName>
+                        <servicePrice>10</servicePrice>
+                        <serviceValues>11</serviceValues>
+                    </service>
+                    <service>
+                        <serviceName>Wax & Polish</serviceName>
+                        <servicePrice>40</servicePrice>
+                        <serviceValues>22</serviceValues>
+                    </service>
+                </services>
+            </serviceGroup>
+        </serviceList>
+    </vehicle>
+</vehicles>

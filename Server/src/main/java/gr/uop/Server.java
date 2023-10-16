@@ -22,6 +22,8 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.time.LocalDateTime;
+import java.util.InputMismatchException;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
@@ -35,6 +37,9 @@ public class Server extends Application {
     private static Thread thread = null;
 
     private static OrderQueue orderQueue = new OrderQueue();
+
+    private static ServiceDB db = new ServiceDB();
+    private static boolean scamPreventionModeEnabled = true;     // Can enable/disable scan prevention mode here 
 
     public static String getCurrencySymbol() {
         return currencySymbol;
@@ -59,6 +64,15 @@ public class Server extends Application {
     public static void setThread(Thread thread) {
         Server.thread = thread;
     }
+
+    public static ServiceDB getDb() {
+        return db;
+    }
+
+    public static void setDb(ServiceDB db) {
+        Server.db = db;
+    }
+
 
 
     public static ObservableList<Order> readOrdersFromFile(){
@@ -235,6 +249,21 @@ public class Server extends Application {
 
     @Override
     public void start(Stage stage){
+
+        if(scamPreventionModeEnabled){
+            // Setup DB for preventing scams
+            try{
+                URL url = getClass().getResource("data/config.xml");
+                File file = new File(url.getPath());
+    
+                db.addFromFile(file);
+            }
+            catch(InputMismatchException e){
+                System.out.println("Wrong file format! Please rewrite config file carefully.");
+            }
+        }
+
+        // Setup thread for scanning orders
         try{
             thread = new Thread(new Runnable() {
                 @Override
@@ -307,6 +336,8 @@ public class Server extends Application {
     }
 
     public static void scanForOrder(){
+        boolean scamDetected = false; 
+
         try (ServerSocket serverSocket = new ServerSocket(9999);
              Socket clientSocket = serverSocket.accept();
              InputStream inputStream = clientSocket.getInputStream();
@@ -321,19 +352,47 @@ public class Server extends Application {
             // Downcast object to order
             Order receivedOrder = (Order) receivedObject;
 
+
+            // Setup Order Data before save
+
+            if(scamPreventionModeEnabled){
+                // First Re-Evalutate total cost to prevent scams
+                Iterator<Service> serviceIt = receivedOrder.getServices().iterator();
+                while(serviceIt.hasNext()){
+                    Service currentOrderService = serviceIt.next();
+    
+                    // Find current order service in ServiceDB
+                    String vehicleSearch = receivedOrder.getVehicleType();
+                    String groupSearch = currentOrderService.getServiceGroup().getGroupName();
+                    String serviceSearch = currentOrderService.getServiceName();
+                    Service actualService = Server.getDb().getSpecificService(vehicleSearch, groupSearch, serviceSearch);
+                    if(actualService != null){
+                        currentOrderService.setServicePrice(actualService.getServicePrice());
+                    }
+                    else{
+                        scamDetected = true;
+                        break;
+                    }
+                }
+                receivedOrder.updateTotalCost();
+            }
+
             // Add Arrival time to order
             receivedOrder.setArrivalDateTime(LocalDateTime.now());
             System.out.println("Received Order: " + receivedOrder.toCSV());
             // Server.getThread().interrupt(); // For debugging purposes 
 
-
-            // Write down order in profit file
-            addOrderInFile(receivedOrder);
-
-            // Update service holder
-            orderQueue.addToOrderList(receivedOrder);
-
-
+            
+            if(scamDetected){
+                System.out.println("##### Scam attempt detected! Order discarded. #####");
+            }
+            else{
+                // Write down order in profit file
+                addOrderInFile(receivedOrder);
+                
+                // Update service holder
+                orderQueue.addToOrderList(receivedOrder);
+            }
         }
         catch (IOException e) {
             System.out.println("IOException found");

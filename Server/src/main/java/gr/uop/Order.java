@@ -68,7 +68,7 @@ public class Order implements Serializable{
         this.totalCost = totalCost;
     }
 
-    public void updateTotalCost(){
+    public void updateTotalCost() {
         double sum = 0;
         for(Service service: this.getServices()){
             sum += service.getServicePrice();
